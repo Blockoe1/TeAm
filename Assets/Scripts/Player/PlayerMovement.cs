@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jumping = false;
 
     private float moveDirection;
-    public bool IsOnGround() => Physics2D.BoxCast(transform.position, Vector2.one * 1.8f, 0, Vector2.down, 0.255f, 1 << LayerMask.NameToLayer("Ground"));//Physics2D.Raycast(transform.position, Vector2.down, 1.017f, 1 << LayerMask.NameToLayer("Ground"));
+    public bool IsOnGround() => Physics2D.BoxCast(transform.position, Vector2.one * 1.75f, 0, Vector2.down, 0.255f, 1 << LayerMask.NameToLayer("Ground"));//Physics2D.Raycast(transform.position, Vector2.down, 1.017f, 1 << LayerMask.NameToLayer("Ground"));
 
     [SerializeField] private int _gasLayer = 9;
     [Header("End Scenes")]
@@ -87,7 +87,9 @@ public class PlayerMovement : MonoBehaviour
         bool justJumped = false;
         if (jumping && cyoteTimer > 0)
         {
-            pRigidBody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            //Add force is bad
+            //pRigidBody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            pRigidBody2D.linearVelocity = new(pRigidBody2D.linearVelocity.x, jumpForce);
             cyoteTimer = 0;
             justJumped = true;
         }

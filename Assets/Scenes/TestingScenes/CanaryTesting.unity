@@ -131,6 +131,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[16].name
+      value: Alive
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[17].name
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[16].audClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[16].canLoop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[16].isMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[17].audClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e0d93040a5d734347aae4f41f1e5e87f, type: 3}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[17].canLoop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[17].isMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[16].clipPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[17].clipPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[17].panStereo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[16].clipVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346954340722022346, guid: 3302214c821597248a01edd880aaed3d, type: 3}
+      propertyPath: Sounds.Array.data[17].clipVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4115613038681742313, guid: 3302214c821597248a01edd880aaed3d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 260.65805

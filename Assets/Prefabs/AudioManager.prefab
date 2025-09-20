@@ -223,5 +223,5 @@ MonoBehaviour:
     source: {fileID: 0}
   musicVolume: 1
   masterMixer: {fileID: 24300002, guid: 5c4367a5ad9c519419189c65c947900e, type: 2}
-  timeBetweenFootsteps: 0.05
+  timeBetweenFootsteps: 0.15
   c: {fileID: 0}

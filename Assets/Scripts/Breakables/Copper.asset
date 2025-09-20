@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe1af559b47b7645829431a0139849b, type: 3}
+  m_Name: Copper
+  m_EditorClassIdentifier: 
+  sprite: {fileID: -8235972056233859831, guid: 19d91590dc67da5438ab22566b92ea96, type: 3}
+  scoreToAdd: 20
+  bitcoinToAdd: 0
+  hitsToBreak: 2

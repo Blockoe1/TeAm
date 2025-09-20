@@ -2,45 +2,38 @@ using UnityEngine;
 
 public class BackgroundMover : MonoBehaviour
 {
-    [SerializeField] private Vector2 levelMin;
-    [SerializeField] private Vector2 levelMax;
+    [SerializeField] private float parralaxMultiplier;
 
     private Transform cameraTransform;
     private float backgroundWidth;
-    private float backgroundHeight;
+    float previousPos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
-        Sprite sprite = spriteRend.sprite;
 
-        backgroundHeight = spriteRend.size.y;
-        backgroundWidth = spriteRend.size.x;
+        backgroundWidth = spriteRend.sprite.texture.width / spriteRend.sprite.pixelsPerUnit;
         cameraTransform = Camera.main.transform;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector2 cameraPosition = new Vector2(Mathf.Clamp(cameraTransform.position.x, levelMin.x, levelMax.x),
-            Mathf.Clamp(cameraTransform.position.y, levelMin.y, levelMax.y));
-        Vector2 levelCenter = new Vector2((levelMax.x + levelMin.x) / 2, (levelMax.y + levelMin.y) / 2);
-        Vector2 toCenter = cameraPosition - levelCenter;
-        Debug.Log(levelCenter);
+        float delta = cameraTransform.position.x - previousPos;
 
-        float xPos = -CalculateBackgroundPosition(toCenter.x, levelMin.x, levelMax.x, backgroundWidth);
-        float yPos = -CalculateBackgroundPosition(toCenter.y, levelMin.y, levelMax.y, backgroundHeight);
+        float targetPos =  transform.localPosition.x + (delta * -parralaxMultiplier);
+        // Loop the background when it exceeds it's maximum
+        // If our position is outside of the camera's bounds, then we should loop.
+        if (Mathf.Abs(targetPos) >= backgroundWidth)
+        {
+            float offsetPos = targetPos % backgroundWidth;
+            Debug.Log(offsetPos);
+            targetPos = -targetPos + offsetPos * 2;
 
-        transform.localPosition = new Vector2(xPos, yPos);
-    }
+        }
+        transform.localPosition = new Vector3(targetPos, transform.localPosition.y, transform.localPosition.z);
 
-    private float CalculateBackgroundPosition(float toCenter, float levelMin, float levelMax, 
-        float backgroundDimension)
-    {
-        float ratio = toCenter / (levelMax - levelMin);
-        float backPos = backgroundDimension * ratio;
-
-        return backPos;
+        previousPos = cameraTransform.position.x;
     }
 }

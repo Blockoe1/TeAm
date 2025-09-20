@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
         
         moveDirection = move.ReadValue<float>();
-        if(moveDirection > .05f || moveDirection < -.05f)
+        if(IsOnGround() && (moveDirection > .05f || moveDirection < -.05f))
         {
             if (am != null)
                 am.PlayFootsteps();

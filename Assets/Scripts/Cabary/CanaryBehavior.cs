@@ -69,8 +69,10 @@ public class CanaryBehavior : MonoBehaviour
         {
             Debug.Log("Canary Hurt");
             collision.gameObject.GetComponent<CloudBehavior>().MakeVisible();
-            rb2d.linearVelocity = Vector2.zero;
+            rb2d.linearVelocity = rb2d.linearVelocity*.8f;
             rb2d.gravityScale = gravityScale;
+            pf.HurtCanary();
+
         }
     }
 
@@ -78,7 +80,7 @@ public class CanaryBehavior : MonoBehaviour
     {
         gameObject.layer = 8;
 
-        Vector3 diff = pf.gameObject.transform.position - transform.position;
+        Vector3 diff = (pf.gameObject.transform.position - transform.position) * .6f;
         rb2d.AddForce(diff, ForceMode2D.Impulse);
     }
 }

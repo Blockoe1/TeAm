@@ -21,7 +21,10 @@ public class PlayerFiring : MonoBehaviour
 
     private InputAction shoot;
 
+    private bool isSpitting = false;
+
     public Vector2 LaunchPos { get => launchPos; set => launchPos = value; }
+    public bool IsSpitting { get => isSpitting; set => isSpitting = value; }
 
     void Start()
     {
@@ -37,17 +40,20 @@ public class PlayerFiring : MonoBehaviour
     {
         if (_canLaunch)
         {
-            // start animation
-            playerPos = transform.position;
-            _rad = Mathf.Deg2Rad * _degrees;
-            Vector2 _launchPos = playerPos + _launchPosRelative;
-            GameObject _can = Instantiate(canary, new Vector3(_launchPos.x, _launchPos.y, 0f), Quaternion.identity);
-            StartCoroutine(_can.GetComponent<CanaryBehavior>().Launch(_rad, _visDistance, this));
-            _canLaunch = false;
+            isSpitting = true;
         }
 
     }
-
+    public void Shoot()
+    {
+        
+        playerPos = transform.position;
+        _rad = Mathf.Deg2Rad * _degrees;
+        Vector2 _launchPos = playerPos + _launchPosRelative;
+        GameObject _can = Instantiate(canary, new Vector3(_launchPos.x, _launchPos.y, 0f), Quaternion.identity);
+        StartCoroutine(_can.GetComponent<CanaryBehavior>().Launch(_rad, _visDistance, this));
+        _canLaunch = false;
+    }
     public void ResetCanary()
     {
         _canLaunch = true;

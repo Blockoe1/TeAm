@@ -83,8 +83,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1351510531
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7161120620151865894, guid: 54415949e7737e741854c52bde34eed1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -112,7 +112,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 4edd12cc298d3504880b0f8e123b50b3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -169,7 +169,7 @@ MonoBehaviour:
   maxCyoteTime: 10
   maxSpeed: 10
   acceleration: 8
-  jumpForce: 8.5
+  jumpForce: 17
   _gasLayer: 9
   _loseScene: 0
   _winScene: 0
@@ -202,8 +202,8 @@ MonoBehaviour:
   _launchPosRelative: {x: 0, y: 0, z: 0}
   _visDistance: 5
   _degrees: 15
-  canary: {fileID: 0}
-  _maxHealth: 0
+  canary: {fileID: 6684891126805610537, guid: c226a1cb29789f441967ccded115ff9e, type: 3}
+  _maxHealth: 3
 --- !u!61 &7854540301724159654
 BoxCollider2D:
   m_ObjectHideFlags: 0

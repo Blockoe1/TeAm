@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using NaughtyAttributes;
+using UnityEngine.SceneManagement;
+using UnityEditor.SearchService;
 
 public class PlayerFiring : MonoBehaviour
 {
@@ -10,9 +12,10 @@ public class PlayerFiring : MonoBehaviour
     [SerializeField, Range(0,360)] private int _degrees;
     private float _rad;
     private Vector3 playerPos;
-    [SerializeField, Required] private GameObject _canary;
-    [SerializeField] private bool _canLaunch;
+    [SerializeField, Required] private GameObject canary;
+    private bool _canLaunch = true;
     Vector2 launchPos;
+    [SerializeField] private int _maxHealth;
 
     private PlayerInput pInput;
 
@@ -27,6 +30,7 @@ public class PlayerFiring : MonoBehaviour
         shoot = pInput.currentActionMap.FindAction("Shoot");
 
         shoot.performed += Shoot_performed;
+        PlayerStatScript.RemainingHealth = _maxHealth;
     }
 
     private void Shoot_performed(InputAction.CallbackContext obj)
@@ -37,8 +41,8 @@ public class PlayerFiring : MonoBehaviour
             playerPos = transform.position;
             _rad = Mathf.Deg2Rad * _degrees;
             Vector2 _launchPos = playerPos + _launchPosRelative;
-            GameObject canary = Instantiate(_canary, new Vector3(_launchPos.x, _launchPos.y, 0f), Quaternion.identity);
-            StartCoroutine(canary.GetComponent<CanaryBehavior>().Launch(_rad, _visDistance, this));
+            GameObject _can = Instantiate(canary, new Vector3(_launchPos.x, _launchPos.y, 0f), Quaternion.identity);
+            StartCoroutine(_can.GetComponent<CanaryBehavior>().Launch(_rad, _visDistance, this));
             _canLaunch = false;
         }
 
@@ -47,6 +51,12 @@ public class PlayerFiring : MonoBehaviour
     public void ResetCanary()
     {
         _canLaunch = true;
+    }
+
+
+    public void HurtCanary()
+    {
+        // do something if we want
     }
 
 

@@ -28,7 +28,7 @@ public class BackgroundMover : MonoBehaviour
         if (Mathf.Abs(targetPos) >= backgroundWidth)
         {
             float offsetPos = targetPos % backgroundWidth;
-            Debug.Log(offsetPos);
+            //Debug.Log(offsetPos);
             targetPos = -targetPos + offsetPos * 2;
 
         }

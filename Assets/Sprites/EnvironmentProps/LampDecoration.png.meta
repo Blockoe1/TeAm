@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 3bc1b2fec344e294c9ee3092a92449ba
+guid: 9b7f627235de16e4abc8eddeadf58723
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5590951296969009298
-    second: TheStone_0
+      213: 1083109389284667802
+    second: LampDecoration_0
   - first:
-      213: -3888336662501080621
-    second: TheStone_1
+      213: 3824922854254698579
+    second: LampDecoration_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,45 +103,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TheStone_0
+      name: LampDecoration_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.9411765, y: 0.3125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6717a3ea63f862b0800000000000000
-      internalID: -5590951296969009298
+      spriteID: a91f331404af70f00800000000000000
+      internalID: 1083109389284667802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TheStone_1
+      name: LampDecoration_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 16
         y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 1, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3d1ce70286ad90ac0800000000000000
-      internalID: -3888336662501080621
+      spriteID: 350ef15121bd41530800000000000000
+      internalID: 3824922854254698579
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 77707301664eeb84e8f1d797e3a79bb8
+    spriteID: b2d923c9ee2c5644ca1c43c00b77f2a7
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TheStone_0: -5590951296969009298
-      TheStone_1: -3888336662501080621
+      LampDecoration_0: 1083109389284667802
+      LampDecoration_1: 3824922854254698579
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

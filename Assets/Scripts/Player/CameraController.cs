@@ -12,7 +12,9 @@ public class CameraController : MonoBehaviour
 
         Vector2 mousePosition = Mouse.current.position.ReadValue();
 
-        Vector2 finalPos = (mousePosition - screenCenter) / dampening;
+        float pythagoranTheorum = Mathf.Sqrt((Screen.width ^ 2) +  (Screen.height ^ 2));
+
+        Vector2 finalPos = (mousePosition - screenCenter) / (dampening * pythagoranTheorum);
 
         if(finalPos.magnitude > maxDistanceFromPlayer)
         {
@@ -22,6 +24,6 @@ public class CameraController : MonoBehaviour
 
         finalPos += (Vector2)player.position;
 
-        transform.position = new(finalPos.x, finalPos.y, -10);
+        transform.position = new(finalPos.x, finalPos.y);
     }
 }

@@ -40,7 +40,8 @@ public class CanaryBehavior : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         canCollide = true;
         yield return new WaitForSeconds(timeBeforeFalling);
-        rb2d.gravityScale = gravityScale;
+        if(rb2d!=null)
+            rb2d.gravityScale = gravityScale;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,10 +49,25 @@ public class CanaryBehavior : MonoBehaviour
         if (canCollide)
         {
             Debug.Log(collision.gameObject.name);
-            pf.ResetCanary();
             rb2d.linearVelocity = Vector2.zero;
             rb2d.gravityScale = 0f;
-            Destroy(gameObject);
+            if (!collision.gameObject.GetComponent<PlayerMovement>())
+            {
+                ReturnCanary();
+            }
+            else
+            {
+                pf.ResetCanary();
+                Destroy(gameObject);
+            }
         }
+    }
+
+    private void ReturnCanary()
+    {
+        gameObject.layer = 8;
+
+        Vector3 diff = pf.gameObject.transform.position - transform.position;
+        rb2d.AddForce(diff, ForceMode2D.Impulse);
     }
 }

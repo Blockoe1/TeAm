@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 //Unity sucks, they spell behavior with a U
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private PlayerAnimation _playerAnimator;
 
     [SerializeField] private int maxCyoteTime = 10;
 
@@ -69,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
     private void Jump_started(InputAction.CallbackContext obj)
     {
         jumping = true;
-        _playerAnimator.PlayJump();
     }
     private void Jump_canceled(InputAction.CallbackContext obj)
     {
@@ -108,8 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
         
         moveDirection = move.ReadValue<float>();
-        _playerAnimator.FlipSprite();
-        _playerAnimator.PlayOnGroundAnimation();
+        PlayerAnimation.Instance.FlipSprite();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

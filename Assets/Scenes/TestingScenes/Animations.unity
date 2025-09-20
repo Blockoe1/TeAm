@@ -2273,6 +2273,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 567240491119237640, guid: 8f7d2dee0fed522428d574d821873181, type: 3}
+      propertyPath: canary
+      value: 
+      objectReference: {fileID: 6684891126805610537, guid: c226a1cb29789f441967ccded115ff9e, type: 3}
+    - target: {fileID: 567240491119237640, guid: 8f7d2dee0fed522428d574d821873181, type: 3}
+      propertyPath: _maxHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3543431428262193340, guid: 8f7d2dee0fed522428d574d821873181, type: 3}
       propertyPath: m_Name
       value: Player

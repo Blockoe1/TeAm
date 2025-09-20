@@ -2,9 +2,23 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    private static PlayerAnimation instance;
+
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private PlayerMine _playerMine;
+    [SerializeField] private PlayerFiring _playerFiring;
     [SerializeField] private Animator _playerAnimator;
 
+    public static PlayerAnimation Instance { get => instance; set => instance = value; }
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    private void Update()
+    {
+        UpdateAnimationParameters();
+    }
     public void FlipSprite()
     {
         if (_playerMovement.MoveDirection < 0 )
@@ -12,39 +26,20 @@ public class PlayerAnimation : MonoBehaviour
         else if (_playerMovement.MoveDirection > 0 )
             GetComponent<SpriteRenderer>().flipX = false;
     }
-    public void PlayOnGroundAnimation()
+    public void UpdateAnimationParameters()
     {
-        PlayIdle();
-        PlayRun();
+        _playerAnimator.SetBool("IsMoving", _playerMovement.IsMoving);
+        _playerAnimator.SetBool("IsJumping", _playerMovement.IsJumping);
+        _playerAnimator.SetBool("IsOnGround", _playerMovement.IsOnGround());
+        _playerAnimator.SetBool("IsMining", _playerMine.IsMining);
+        _playerAnimator.SetBool("IsSpitting", _playerFiring.IsSpitting);
     }
-    public void PlayIdle()
+    public void EndMining()
     {
-        if (_playerMovement.IsOnGround() && !_playerMovement.IsMoving && !_playerMovement.IsJumping)
-            _playerAnimator.Play("IDLE");
+        _playerMine.IsMining = false;
     }
-    public void PlayRun()
+    public void EndSpit()
     {
-        if (_playerMovement.IsOnGround() && _playerMovement.IsMoving && !_playerMovement.IsJumping)
-            _playerAnimator.Play("RUN");
-    }
-    public void PlayJump()
-    {
-        if (!_playerMovement.IsJumping)
-            return;
-        _playerAnimator.Play("JUMP");
-    }
-    public void PlayAirtime()
-    {
-        if (_playerMovement.IsOnGround())
-            return;
-        _playerAnimator.Play("AIRTIME");
-    }
-    public void PlayMine()
-    {
-        _playerAnimator.Play("MINE");
-    }
-    public void PlaySpit()
-    {
-        _playerAnimator.Play("SPIT");
+        _playerFiring.IsSpitting = false;
     }
 }

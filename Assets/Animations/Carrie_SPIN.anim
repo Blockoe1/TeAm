@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Perrin_SPIT
+  m_Name: Carrie_SPIN
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,17 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 7882802321784802506, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
+      value: {fileID: 3708004496969165784, guid: ad50cbad818c1bc4cbbae49000ce5891, type: 3}
     - time: 0.083333336
-      value: {fileID: 7978695973096000125, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
+      value: {fileID: -7558990424220874192, guid: ad50cbad818c1bc4cbbae49000ce5891, type: 3}
     - time: 0.16666667
-      value: {fileID: -3148834534397024955, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
+      value: {fileID: -8662120916460969751, guid: ad50cbad818c1bc4cbbae49000ce5891, type: 3}
     - time: 0.25
-      value: {fileID: -6176995779274266726, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
+      value: {fileID: -7093280276417517734, guid: ad50cbad818c1bc4cbbae49000ce5891, type: 3}
     - time: 0.33333334
-      value: {fileID: -7638496070454904146, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
-    - time: 0.41666666
-      value: {fileID: -7638496070454904146, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
+      value: {fileID: -7093280276417517734, guid: ad50cbad818c1bc4cbbae49000ce5891, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,18 +52,17 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 7882802321784802506, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
-    - {fileID: 7978695973096000125, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
-    - {fileID: -3148834534397024955, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
-    - {fileID: -6176995779274266726, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
-    - {fileID: -7638496070454904146, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
-    - {fileID: -7638496070454904146, guid: da19d5128c8bdbb4ca53dd0f1ac592a0, type: 3}
+    - {fileID: 3708004496969165784, guid: ad50cbad818c1bc4cbbae49000ce5891, type: 3}
+    - {fileID: -7558990424220874192, guid: ad50cbad818c1bc4cbbae49000ce5891, type: 3}
+    - {fileID: -8662120916460969751, guid: ad50cbad818c1bc4cbbae49000ce5891, type: 3}
+    - {fileID: -7093280276417517734, guid: ad50cbad818c1bc4cbbae49000ce5891, type: 3}
+    - {fileID: -7093280276417517734, guid: ad50cbad818c1bc4cbbae49000ce5891, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.43333334
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -84,18 +81,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.16666667
-    functionName: 
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.41666666
-    functionName: EndSpit
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

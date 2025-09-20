@@ -166,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b0f06e3f8315b47bc36559b541d0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 8389065816617828579}
   maxCyoteTime: 10
   maxSpeed: 8
   acceleration: 8
@@ -264,6 +263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMovement: {fileID: 1255006410385664032}
+  _playerMine: {fileID: 5284391485130005648}
+  _playerFiring: {fileID: 567240491119237640}
   _playerAnimator: {fileID: 4229158119677106522}
 --- !u!95 &4229158119677106522
 Animator:

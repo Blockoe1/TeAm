@@ -119,6 +119,66 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &49800592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49800594}
+  - component: {fileID: 49800593}
+  m_Layer: 0
+  m_Name: '!GAMECONTROLLER'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &49800593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49800592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f6ffbe2a3ff1449b0d1c5f570378b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - name: Splat
+    isMusic: 0
+    audClip: {fileID: 8300000, guid: 50e2847d4e52ea249b9c19414c1fb751, type: 3}
+    clipVolume: 1
+    clipPitch: 0
+    canLoop: 0
+    panStereo: 0
+    spacialBlend: 0
+    minSoundDistance: 0
+    maxSoundDistance: 0
+    source: {fileID: 0}
+  musicVolume: 0
+  masterMixer: {fileID: 0}
+  timeBetweenFootsteps: 0.05
+  c: {fileID: 0}
+--- !u!4 &49800594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49800592}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &676886901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,6 +2429,63 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1001 &1251584031
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4577359812568423369, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.3851547
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577359812568423369, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.58813787
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577359812568423369, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577359812568423369, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577359812568423369, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577359812568423369, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577359812568423369, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577359812568423369, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577359812568423369, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577359812568423369, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849905315841083978, guid: 399ede7590931644f89ab66280c87449, type: 3}
+      propertyPath: m_Name
+      value: Gas
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 399ede7590931644f89ab66280c87449, type: 3}
 --- !u!1001 &1323876200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2743,3 +2860,5 @@ SceneRoots:
   - {fileID: 2118555801}
   - {fileID: 1323876200}
   - {fileID: 2138592734}
+  - {fileID: 49800594}
+  - {fileID: 1251584031}

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class CanaryBehavior : MonoBehaviour
 {
+    private Animator animator;
     private Rigidbody2D rb2d;
     private PlayerFiring pf;
     [SerializeField] private float timeBeforeFalling = .2f;
@@ -18,6 +19,7 @@ public class CanaryBehavior : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         am = FindFirstObjectByType<AudioManager>();
+        animator = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -52,23 +54,24 @@ public class CanaryBehavior : MonoBehaviour
         {
             rb2d.linearVelocity = Vector2.zero;
             rb2d.gravityScale = 0f;
-            if (!collision.gameObject.GetComponent<PlayerMovement>())
+            if (!collision.gameObject.GetComponent<PlayerMovement>() && !animator.GetBool("HasKOed"))
             {
                 ReturnCanary();
             }
-            else
+            else if (collision.gameObject.GetComponent<PlayerMovement>())
             {
                 pf.ResetCanary();
                 // change canary sprite
                 am.Play("Splat");
                 Destroy(GetComponent<Collider>());
+                Destroy(gameObject);
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 9)
+        if (collision.gameObject.layer == 9) //GAS
         {
             Debug.Log("Canary Hurt");
             collision.gameObject.GetComponent<CloudBehavior>().MakeVisible();
@@ -76,14 +79,30 @@ public class CanaryBehavior : MonoBehaviour
             rb2d.gravityScale = gravityScale;
             pf.HurtCanary();
 
+            animator.SetBool("HasKOed", true);
+            StartCoroutine(DeadCountdown());
         }
     }
 
-    private void ReturnCanary()
+    public void ReturnCanary()
     {
+        Debug.Log("Return");
         gameObject.layer = 8;
 
         Vector3 diff = (pf.gameObject.transform.position - transform.position) * .6f;
         rb2d.AddForce(diff, ForceMode2D.Impulse);
+
+        animator.SetBool("HasCrashed", true);
+
+    }
+    IEnumerator DeadCountdown()
+    {
+        while (animator.GetInteger("DeadWaitTime") > 0)
+        {
+            yield return new WaitForSeconds(1);
+            animator.SetInteger("DeadWaitTime", animator.GetInteger("DeadWaitTime") - 1);
+            Debug.Log(animator.GetInteger("DeadWaitTime"));
+        }
+        ReturnCanary();
     }
 }

@@ -62,7 +62,6 @@ public class PlayerFiring : MonoBehaviour
     }
     public void Shoot()
     {
-        Debug.Log("Shoot");
         playerPos = transform.position;
         _rad = Mathf.Deg2Rad * _degrees;
         Vector2 _launchPos = playerPos + _launchPosRelative;

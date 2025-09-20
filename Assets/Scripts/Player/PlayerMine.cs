@@ -25,10 +25,10 @@ public class PlayerMine : MonoBehaviour
     private void Mine_started(InputAction.CallbackContext obj)
     {
         isMining = true;
-        Mine();
     }
     public void Mine()
     {
+
         Vector2 direction = mouseDirectionPoint.position - transform.position;
         direction.Normalize();
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, range, 1 << LayerMask.NameToLayer("Ground"));
@@ -40,6 +40,7 @@ public class PlayerMine : MonoBehaviour
 
         if (hit.collider.gameObject.GetComponent<BreakableObject>())
         {
+            Debug.Log("Mine");
             hit.collider.gameObject.GetComponent<BreakableObject>().BreakObject();
         }
     }

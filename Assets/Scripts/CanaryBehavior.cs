@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 
@@ -48,7 +49,6 @@ public class CanaryBehavior : MonoBehaviour
     {
         if (canCollide)
         {
-            Debug.Log(collision.gameObject.name);
             rb2d.linearVelocity = Vector2.zero;
             rb2d.gravityScale = 0f;
             if (!collision.gameObject.GetComponent<PlayerMovement>())
@@ -60,6 +60,17 @@ public class CanaryBehavior : MonoBehaviour
                 pf.ResetCanary();
                 Destroy(gameObject);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            Debug.Log("Canary Hurt");
+            collision.gameObject.GetComponent<CloudBehavior>().MakeVisible();
+            rb2d.linearVelocity = Vector2.zero;
+            rb2d.gravityScale = gravityScale;
         }
     }
 

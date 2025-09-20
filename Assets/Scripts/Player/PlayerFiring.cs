@@ -23,6 +23,8 @@ public class PlayerFiring : MonoBehaviour
 
     public Vector2 LaunchPos { get => launchPos; set => launchPos = value; }
     public bool IsSpitting { get => isSpitting; set => isSpitting = value; }
+    public bool CanLaunch { get => _canLaunch; set => _canLaunch = value; }
+
     private float dir;
 
     void Start()

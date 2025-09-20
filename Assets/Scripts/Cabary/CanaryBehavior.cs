@@ -12,6 +12,7 @@ public class CanaryBehavior : MonoBehaviour
     [SerializeField] private float distanceModifier = 1.0f;
     [SerializeField] private float timeBeforeLaunch = .5f;
     [SerializeField] private float gravityScale = .5f;
+    [SerializeField] private float returnSpeed = 0.6f;
 
     AudioManager am;
     private bool canCollide = false;
@@ -83,14 +84,20 @@ public class CanaryBehavior : MonoBehaviour
             StartCoroutine(DeadCountdown());
         }
     }
-
+    private void OnDestroy()
+    {
+        pf.CanLaunch = true;
+    }
     public void ReturnCanary()
     {
         Debug.Log("Return");
         gameObject.layer = 8;
 
         Vector3 diff = (pf.gameObject.transform.position - transform.position) * .6f;
-        rb2d.AddForce(diff, ForceMode2D.Impulse);
+        if (GetComponent<Renderer>().isVisible)
+            rb2d.AddForce(diff, ForceMode2D.Impulse);
+        else
+            Destroy(gameObject);
 
         animator.SetBool("HasCrashed", true);
 

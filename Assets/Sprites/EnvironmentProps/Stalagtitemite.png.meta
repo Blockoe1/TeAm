@@ -107,11 +107,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 16
         width: 16
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5625}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -129,19 +129,63 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 16
         width: 16
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4375}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 727a1ab35d763f0d0800000000000000
-      internalID: -3390251928953706713
+      spriteID: cb0499ca9fe903a4cbcec7e9795220f7
+      internalID: 2070647422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalagtitemite_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 622b28fe538660148955b0a28e682e03
+      internalID: -1501390285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalagtitemite_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d27b9d1203a523d4a8bbfca33b5218b2
+      internalID: 1734453200
       vertices: []
       indices: 
       edges: []
@@ -161,7 +205,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Stalagtitemite_0: -2639248524047469425
-      Stalagtitemite_1: -3390251928953706713
+      Stalagtitemite_1: 2070647422
+      Stalagtitemite_2: -1501390285
+      Stalagtitemite_3: 1734453200
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

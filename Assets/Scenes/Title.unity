@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverCase: 0
-  additionalInformation: 'TEAM:\n\nProgrammer: Brandon Koderitz\nProgrammer: Cade
+  additionalInformation: 'TeAm:\n\nProgrammer: Brandon Koderitz\nProgrammer: Cade
     Naylor\nProgrammer: Lucas Fehlberg\nProgrammer: Marlow Greenan'
 --- !u!1 &367914843
 GameObject:
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverCase: 0
-  additionalInformation: CONTROLS:\n\nWASD to Move\nLeft Click to throw\n
+  additionalInformation: controls:\n\nWASD to Move\nLeft Click to throw\n
 --- !u!1 &1357147912
 GameObject:
   m_ObjectHideFlags: 0

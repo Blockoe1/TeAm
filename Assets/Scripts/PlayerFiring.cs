@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using NaughtyAttributes;
 
 public class PlayerFiring : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlayerFiring : MonoBehaviour
     [SerializeField, Range(0,360)] private int _degrees;
     private float _rad;
     private Vector3 playerPos;
-    [SerializeField] private GameObject _canary;
+    [SerializeField, Required] private GameObject _canary;
     [SerializeField] private bool _canLaunch;
     Vector2 launchPos;
 
@@ -33,14 +34,19 @@ public class PlayerFiring : MonoBehaviour
         if (_canLaunch)
         {
             // start animation
+            playerPos = transform.position;
+            _rad = Mathf.Deg2Rad * _degrees;
+            Vector2 _launchPos = playerPos + _launchPosRelative;
+            GameObject canary = Instantiate(_canary, new Vector3(_launchPos.x, _launchPos.y, 0f), Quaternion.identity);
+            StartCoroutine(canary.GetComponent<CanaryBehavior>().Launch(_rad, _visDistance, this));
+            _canLaunch = false;
         }
-        playerPos = transform.position;
-        _rad = Mathf.Deg2Rad * _degrees;
-        Vector2 _launchPos = playerPos + _launchPosRelative;
-        _canary.transform.position = _launchPos;
-        StartCoroutine(_canary.GetComponent<CanaryBehavior>().Launch(_rad, _visDistance, this));
-        _canLaunch = false; 
 
+    }
+
+    public void ResetCanary()
+    {
+        _canLaunch = true;
     }
 
 

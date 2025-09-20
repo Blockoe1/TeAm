@@ -24,11 +24,13 @@ public class PlayerMine : MonoBehaviour
 
     private void Mine_started(InputAction.CallbackContext obj)
     {
+        isMining = true;
+        Mine();
+    }
+    public void Mine()
+    {
         Vector2 direction = mouseDirectionPoint.position - transform.position;
         direction.Normalize();
-
-        isMining = true;
-
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, range, 1 << LayerMask.NameToLayer("Ground"));
 
         if (!hit)

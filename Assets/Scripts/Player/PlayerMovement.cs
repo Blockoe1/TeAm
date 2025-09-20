@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 //Unity sucks, they spell behavior with a U
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private PlayerAnimation _playerAnimator;
+
     [SerializeField] private int maxCyoteTime = 10;
 
     [SerializeField] private float maxSpeed = 8f;
@@ -26,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving = false;
     private bool jumping = false;
 
-    private bool IsOnGround() => Physics2D.BoxCast(transform.position, Vector2.one * 2, 0, Vector2.down, 0.58f, 1 << LayerMask.NameToLayer("Ground"));//Physics2D.Raycast(transform.position, Vector2.down, 1.017f, 1 << LayerMask.NameToLayer("Ground"));
+    private float moveDirection;
+    public bool IsOnGround() => Physics2D.BoxCast(transform.position, Vector2.one * 2, 0, Vector2.down, 0.6f, 1 << LayerMask.NameToLayer("Ground"));//Physics2D.Raycast(transform.position, Vector2.down, 1.017f, 1 << LayerMask.NameToLayer("Ground"));
 
     [SerializeField] private int _gasLayer = 9;
     [Header("End Scenes")]
@@ -34,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int _winScene;
 
     public bool IsMoving { get => isMoving; set => isMoving = value; }
+    public bool IsJumping { get => jumping; set => jumping = value; }
+    public float MoveDirection { get => moveDirection; set => moveDirection = value; }
 
     private void Awake()
     {
@@ -64,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump_started(InputAction.CallbackContext obj)
     {
         jumping = true;
+        _playerAnimator.PlayJump();
     }
     private void Jump_canceled(InputAction.CallbackContext obj)
     {
@@ -72,7 +78,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
+        move.started -= Move_started;
+        move.canceled -= Move_canceled;
         jump.started -= Jump_started;
+        jump.canceled -= Jump_canceled;
     }
 
     private void FixedUpdate()
@@ -94,8 +103,13 @@ public class PlayerMovement : MonoBehaviour
             cyoteTimer = maxCyoteTime;
         }
 
-        velocityX = Mathf.MoveTowards(velocityX, move.ReadValue<float>() * maxSpeed, acceleration);       
+        velocityX = Mathf.MoveTowards(velocityX, move.ReadValue<float>() * maxSpeed, acceleration);
         pRigidBody2D.linearVelocity = new(velocityX, pRigidBody2D.linearVelocity.y);
+
+        
+        moveDirection = move.ReadValue<float>();
+        _playerAnimator.FlipSprite();
+        _playerAnimator.PlayOnGroundAnimation();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

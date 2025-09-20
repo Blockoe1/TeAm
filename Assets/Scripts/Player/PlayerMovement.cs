@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool jumping = false;
 
-    private bool IsOnGround() => Physics2D.BoxCast(transform.position, Vector2.one * 1.9f, 0, Vector2.down, 0.1f, 1 << LayerMask.NameToLayer("Ground"));//Physics2D.Raycast(transform.position, Vector2.down, 1.017f, 1 << LayerMask.NameToLayer("Ground"));
+    private bool IsOnGround() => Physics2D.BoxCast(transform.position, Vector2.one * 1.5f, 0, Vector2.down, 0.35f, 1 << LayerMask.NameToLayer("Ground"));//Physics2D.Raycast(transform.position, Vector2.down, 1.017f, 1 << LayerMask.NameToLayer("Ground"));
 
     [SerializeField] private int _gasLayer = 9;
     [Header("End Scenes")]

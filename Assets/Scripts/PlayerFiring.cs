@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerFiring : MonoBehaviour
 {
@@ -8,17 +9,40 @@ public class PlayerFiring : MonoBehaviour
     [SerializeField, Range(0,360)] private int _degrees;
     private float _rad;
     private Vector3 playerPos;
+    [SerializeField] private GameObject _canary;
+    [SerializeField] private bool _canLaunch;
+    Vector2 launchPos;
 
     private PlayerInput pInput;
 
     private InputAction shoot;
+
+    public Vector2 LaunchPos { get => launchPos; set => launchPos = value; }
 
     void Start()
     {
         _rad = Mathf.Deg2Rad * _degrees;
         pInput = GetComponent<PlayerInput>();
         shoot = pInput.currentActionMap.FindAction("Shoot");
+
+        shoot.performed += Shoot_performed;
     }
+
+    private void Shoot_performed(InputAction.CallbackContext obj)
+    {
+        if (_canLaunch)
+        {
+            // start animation
+        }
+        playerPos = transform.position;
+        _rad = Mathf.Deg2Rad * _degrees;
+        Vector2 _launchPos = playerPos + _launchPosRelative;
+        _canary.transform.position = _launchPos;
+        StartCoroutine(_canary.GetComponent<CanaryBehavior>().Launch(_rad, _visDistance, this));
+        _canLaunch = false; 
+
+    }
+
 
 
 #if UNITY_EDITOR
@@ -29,7 +53,8 @@ public class PlayerFiring : MonoBehaviour
         Gizmos.color = Color.red;
         Vector2 _launchPos = playerPos + _launchPosRelative;
         Gizmos.DrawSphere(_launchPos, .2f);
-        Gizmos.DrawLine(_launchPos, new Vector2(_launchPos.x + Mathf.Cos(_rad) * _visDistance, _launchPos.y + Mathf.Sin(_rad) * _visDistance));
+        launchPos = new Vector2(_launchPos.x + Mathf.Cos(_rad) * _visDistance, _launchPos.y + Mathf.Sin(_rad) * _visDistance);
+        Gizmos.DrawLine(_launchPos, launchPos);
     }
 #endif
 }

@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCyoteTime: 10
-  maxSpeed: 8
+  maxSpeed: 10
   acceleration: 8
-  jumpForce: 8
+  jumpForce: 8.5
   _gasLayer: 9
   _loseScene: 0
   _winScene: 0

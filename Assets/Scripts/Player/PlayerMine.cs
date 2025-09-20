@@ -42,6 +42,7 @@ public class PlayerMine : MonoBehaviour
         {
             Debug.Log("Mine");
             hit.collider.gameObject.GetComponent<BreakableObject>().BreakObject();
+            FindFirstObjectByType<AudioManager>().PlayPickaxe();
         }
     }
 

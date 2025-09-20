@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class AudioManager : MonoBehaviour
     private Coroutine footsteps;
     void Start()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            PlayMusic("s");
+        }
         int numAM = FindObjectsByType<AudioManager>(sortMode: FindObjectsSortMode.None).Length;
         if (numAM != 1)
         {
@@ -35,7 +40,6 @@ public class AudioManager : MonoBehaviour
 
 
             sound.source.clip = sound.audClip;
-            sound.source.outputAudioMixerGroup = masterMixer;
             sound.source.volume = sound.clipVolume;
             sound.source.pitch = sound.clipPitch;
             sound.source.loop = sound.canLoop;
@@ -52,9 +56,7 @@ public class AudioManager : MonoBehaviour
                 pickaxeTrackCount++;
         }
 
-        PlayPickaxe();
 
-        //Cursor.SetCursor(glassTexture, hotSpot, cursorMode);
     }
 
 
@@ -101,10 +103,18 @@ public class AudioManager : MonoBehaviour
     {
         if(footsteps!=null)
         {
+            return;
+        }
+        footsteps = StartCoroutine(Footsteps());
+    }
+
+    public void StopFootsteps()
+    {
+        if (footsteps != null)
+        {
             StopCoroutine(footsteps);
             footsteps = null;
         }
-        footsteps = StartCoroutine(Footsteps());
     }
 
     private IEnumerator Footsteps()
@@ -121,6 +131,16 @@ public class AudioManager : MonoBehaviour
     {
         int track = UnityEngine.Random.Range(1, pickaxeTrackCount);
         Play("Pickaxe" + track);
+    }
+
+    public void CanaryDeathMusic()
+    {
+        PlayMusic("Death");
+    }
+
+    public void CanaryLivingMusic()
+    {
+        PlayMusic("Alive");
     }
 
 }

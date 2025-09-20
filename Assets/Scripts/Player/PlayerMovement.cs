@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     public bool IsJumping { get => jumping; set => jumping = value; }
     public float MoveDirection { get => moveDirection; set => moveDirection = value; }
 
+    AudioManager am;
+
     private void Awake()
     {
         pRigidBody2D = GetComponent<Rigidbody2D>();
@@ -54,7 +56,10 @@ public class PlayerMovement : MonoBehaviour
         jump.canceled += Jump_canceled;
     }
 
-
+    private void Start()
+    {
+        am = FindFirstObjectByType<AudioManager>();
+    }
 
     private void Move_started(InputAction.CallbackContext obj)
     {
@@ -108,6 +113,17 @@ public class PlayerMovement : MonoBehaviour
 
         
         moveDirection = move.ReadValue<float>();
+        if(moveDirection > .05f || moveDirection < -.05f)
+        {
+
+            if (am == null)
+                am = FindFirstObjectByType<AudioManager>();
+            am.PlayFootsteps();
+        }
+        else
+        {
+            am.StopFootsteps();
+        }
         PlayerAnimation.Instance.FlipSprite();
     }
 

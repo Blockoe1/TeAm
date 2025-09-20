@@ -19,6 +19,7 @@ public class BreakableObject : MonoBehaviour
 
     public void BreakObject()
     {
+        GetComponent<ParticleSystem>().Play();
         if(hits > 0)
         {
             hits--;

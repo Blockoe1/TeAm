@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,13 +24,28 @@ public class PlayerMine : MonoBehaviour
         direction.Normalize();
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, range, 1 << LayerMask.NameToLayer("Ground"));
-        print(hit);
 
         if (!hit)
         {
             return;
         }
 
-        print(hit.collider);
+        if (hit.collider.gameObject.GetComponent<BreakableObject>())
+        {
+            hit.collider.gameObject.GetComponent<BreakableObject>().BreakObject();
+        }
+    }
+
+    public void CollectBitCoin()
+    {
+        StartCoroutine(GetBitCoin());
+    }
+    private IEnumerator GetBitCoin()
+    {
+        while (true)
+        {
+            ScoreScript.TimerSinceGettingBitcoin += 1;
+            yield return new WaitForSeconds(1);
+        }
     }
 }

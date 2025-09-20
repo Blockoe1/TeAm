@@ -24,9 +24,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool jumping = false;
 
-    private bool IsOnGround() => Physics2D.Raycast(transform.position, Vector2.down, 1.0169f, 1 << LayerMask.NameToLayer("Ground"));
+    private bool IsOnGround() => Physics2D.BoxCast(transform.position, Vector2.one * 2, 0, Vector2.down, 0.01f, 1 << LayerMask.NameToLayer("Ground"));//Physics2D.Raycast(transform.position, Vector2.down, 1.017f, 1 << LayerMask.NameToLayer("Ground"));
 
-    private void Start()
+    private void Awake()
     {
         pRigidBody2D = GetComponent<Rigidbody2D>();
         pInput = GetComponent<PlayerInput>();

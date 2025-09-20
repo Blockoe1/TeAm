@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 4ee2f492b3e9eba4a97866c53573dd5f
+guid: 8b0ab295b9119c740b693a1a12326268
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1283201725646497375
-    second: CaveGateBack_0
+      213: 5335489359921422188
+    second: CaveGate_0
+  - first:
+      213: 497817096207897618
+    second: CaveGate_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CaveGateBack_0
+      name: CaveGate_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a91ca744d6213ee0800000000000000
-      internalID: -1283201725646497375
+      spriteID: c6f1ef0ed477b0a40800000000000000
+      internalID: 5335489359921422188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveGate_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 214969ee20a98e600800000000000000
+      internalID: 497817096207897618
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 34cf4a44b2bbfe04bb6e4fbe9db51571
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CaveGateBack_0: -1283201725646497375
+      CaveGate_0: 5335489359921422188
+      CaveGate_1: 497817096207897618
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

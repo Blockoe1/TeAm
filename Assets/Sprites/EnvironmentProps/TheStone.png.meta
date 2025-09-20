@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -5590951296969009298
     second: TheStone_0
+  - first:
+      213: -3888336662501080621
+    second: TheStone_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,11 +124,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: TheStone_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1ce70286ad90ac0800000000000000
+      internalID: -3888336662501080621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 77707301664eeb84e8f1d797e3a79bb8
     internalID: 0
     vertices: []
     indices: 
@@ -136,6 +161,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       TheStone_0: -5590951296969009298
+      TheStone_1: -3888336662501080621
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

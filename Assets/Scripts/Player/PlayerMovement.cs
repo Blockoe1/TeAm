@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public float MoveDirection { get => moveDirection; set => moveDirection = value; }
 
     AudioManager am;
+    float lastDir = 0f;
 
     private void Awake()
     {
@@ -123,6 +124,12 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             am.StopFootsteps();
+        }
+
+        if(lastDir == 0 || (moveDirection < 0 && lastDir > 0) || (moveDirection > 0 && lastDir < 0))
+        {
+            GetComponent<PlayerFiring>().SwitchDirections(moveDirection);
+            lastDir = moveDirection;
         }
         PlayerAnimation.Instance.FlipSprite();
     }

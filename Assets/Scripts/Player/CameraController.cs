@@ -22,6 +22,6 @@ public class CameraController : MonoBehaviour
 
         finalPos += (Vector2)player.position;
 
-        transform.position = new(finalPos.x, finalPos.y, -10);
+        transform.position = new(finalPos.x, finalPos.y);
     }
 }

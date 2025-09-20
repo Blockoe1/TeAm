@@ -10,6 +10,10 @@ public class PlayerMine : MonoBehaviour
     private PlayerInput pInput;
     private InputAction mine;
 
+    private bool isMining = false;
+
+    public bool IsMining { get => isMining; set => isMining = value; }
+
     private void Start()
     {
         pInput = GetComponent<PlayerInput>();
@@ -22,6 +26,8 @@ public class PlayerMine : MonoBehaviour
     {
         Vector2 direction = mouseDirectionPoint.position - transform.position;
         direction.Normalize();
+
+        isMining = true;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, range, 1 << LayerMask.NameToLayer("Ground"));
 

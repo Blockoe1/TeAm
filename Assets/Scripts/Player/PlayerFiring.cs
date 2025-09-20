@@ -21,7 +21,10 @@ public class PlayerFiring : MonoBehaviour
 
     private InputAction shoot;
 
+    private bool isSpitting = false;
+
     public Vector2 LaunchPos { get => launchPos; set => launchPos = value; }
+    public bool IsSpitting { get => isSpitting; set => isSpitting = value; }
 
     void Start()
     {
@@ -37,7 +40,7 @@ public class PlayerFiring : MonoBehaviour
     {
         if (_canLaunch)
         {
-            // start animation
+            isSpitting = true;
             playerPos = transform.position;
             _rad = Mathf.Deg2Rad * _degrees;
             Vector2 _launchPos = playerPos + _launchPosRelative;

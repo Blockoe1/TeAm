@@ -12,11 +12,12 @@ public class CanaryBehavior : MonoBehaviour
     [SerializeField] private float timeBeforeLaunch = .5f;
     [SerializeField] private float gravityScale = .5f;
 
-
+    AudioManager am;
     private bool canCollide = false;
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        am = FindFirstObjectByType<AudioManager>();
     }
 
     /// <summary>
@@ -58,7 +59,9 @@ public class CanaryBehavior : MonoBehaviour
             else
             {
                 pf.ResetCanary();
-                Destroy(gameObject);
+                // change canary sprite
+                am.Play("Splat");
+                Destroy(GetComponent<Collider>());
             }
         }
     }

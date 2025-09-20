@@ -807,9 +807,9 @@ MonoBehaviour:
     minSoundDistance: 0
     maxSoundDistance: 0
     source: {fileID: 0}
-  - name: '>>>'
+  - name: Splat
     isMusic: 0
-    audClip: {fileID: 8300000, guid: ff0ed695902ca7c439ffef3f0dcd0188, type: 3}
+    audClip: {fileID: 8300000, guid: 50e2847d4e52ea249b9c19414c1fb751, type: 3}
     clipVolume: 1
     clipPitch: 1
     canLoop: 0

@@ -116,14 +116,17 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = move.ReadValue<float>();
         if(moveDirection > .05f || moveDirection < -.05f)
         {
-
-            if (am == null)
+            if (am != null)
+                am.PlayFootsteps();
+            else
                 am = FindFirstObjectByType<AudioManager>();
-            am.PlayFootsteps();
         }
         else
         {
-            am.StopFootsteps();
+            if (am != null)
+                am.StopFootsteps();
+            else
+                am = FindFirstObjectByType<AudioManager>();
         }
 
         if(lastDir == 0 || (moveDirection < 0 && lastDir > 0) || (moveDirection > 0 && lastDir < 0))

@@ -23,16 +23,6 @@ public class AudioManager : MonoBehaviour
         {
             PlayMusic("s");
         }
-        int numAM = FindObjectsByType<AudioManager>(sortMode: FindObjectsSortMode.None).Length;
-        if (numAM != 1)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-
 
         foreach (Sound sound in Sounds)
         {

@@ -1,18 +1,32 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class ButtonBehavior : MonoBehaviour
+using NaughtyAttributes;
+public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private bool _useCustomHoverState;
-
-    private Button selfRef;
-
-    private void Start()
+    protected enum HoverCases
     {
-        selfRef = GetComponent<Button>();
-        if (_useCustomHoverState)
+        TITLE, NONE
+    }
+    [SerializeField] private HoverCases hoverCase;
+
+    [SerializeField, ShowIf("hoverCase", HoverCases.TITLE)] private string additionalInformation; 
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (hoverCase == HoverCases.TITLE)
         {
+            FindFirstObjectByType<TitleBehavior>().ShowExtraInformation(additionalInformation);
         }
     }
 
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (hoverCase == HoverCases.TITLE)
+        {
+            FindFirstObjectByType<TitleBehavior>().HideExtraInformation();
+        }
+    }
 }

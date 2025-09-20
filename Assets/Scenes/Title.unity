@@ -464,20 +464,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 180062941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 173433091}
-        m_TargetAssemblyTypeName: TitleBehavior, Assembly-CSharp
-        m_MethodName: ShowExtraInformation
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 'TEAM:\n\nProgrammer: Brandon Koderitz\nProgrammer: Cade
-            Naylor\nProgrammer: Lucas Fehlberg\nProgrammer: Marlow Greenan'
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &180062941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,7 +515,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111913eb3edc7574fa99226282627c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useCustomHoverState: 0
+  hoverCase: 0
+  additionalInformation: 'TEAM:\n\nProgrammer: Brandon Koderitz\nProgrammer: Cade
+    Naylor\nProgrammer: Lucas Fehlberg\nProgrammer: Marlow Greenan'
 --- !u!1 &367914843
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,19 +814,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1290521790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 173433091}
-        m_TargetAssemblyTypeName: TitleBehavior, Assembly-CSharp
-        m_MethodName: ShowExtraInformation
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CONTROLS:\n\nWASD to Move\nLeft Click to throw\n
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1290521790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,7 +865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111913eb3edc7574fa99226282627c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useCustomHoverState: 0
+  hoverCase: 0
+  additionalInformation: CONTROLS:\n\nWASD to Move\nLeft Click to throw\n
 --- !u!1 &1357147912
 GameObject:
   m_ObjectHideFlags: 0

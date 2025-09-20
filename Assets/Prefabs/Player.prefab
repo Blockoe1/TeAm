@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 8651091804314181982}
   - component: {fileID: 1255006410385664032}
   - component: {fileID: 5284391485130005648}
+  - component: {fileID: 567240491119237640}
   - component: {fileID: 7854540301724159654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,6 +182,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 5
   mouseDirectionPoint: {fileID: 366635482322764973}
+--- !u!114 &567240491119237640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3543431428262193340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7617e75c2e5909342a9217428d72b1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _launchPosRelative: {x: 0, y: 0, z: 0}
+  _visDistance: 5
+  _degrees: 15
+  _canary: {fileID: 6684891126805610537, guid: c226a1cb29789f441967ccded115ff9e, type: 3}
+  _canLaunch: 1
 --- !u!61 &7854540301724159654
 BoxCollider2D:
   m_ObjectHideFlags: 0

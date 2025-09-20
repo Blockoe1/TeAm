@@ -1,6 +1,7 @@
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 //Unity sucks, they spell behavior with a U
 public class PlayerMovement : MonoBehaviour
@@ -25,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
     private bool jumping = false;
 
     private bool IsOnGround() => Physics2D.BoxCast(transform.position, Vector2.one * 2, 0, Vector2.down, 0.01f, 1 << LayerMask.NameToLayer("Ground"));//Physics2D.Raycast(transform.position, Vector2.down, 1.017f, 1 << LayerMask.NameToLayer("Ground"));
+
+    [SerializeField] private int _gasLayer = 9;
+    [Header("End Scenes")]
+    [SerializeField] private int _loseScene;
+    [SerializeField] private int _winScene;
 
     private void Awake()
     {
@@ -75,5 +81,19 @@ public class PlayerMovement : MonoBehaviour
 
         velocityX = Mathf.MoveTowards(velocityX, move.ReadValue<float>() * maxSpeed, acceleration);       
         pRigidBody2D.linearVelocity = new(velocityX, pRigidBody2D.linearVelocity.y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == _gasLayer)
+        {
+            Debug.Log("Hit");
+            PlayerStatScript.RemainingHealth--;
+            if (PlayerStatScript.RemainingHealth <= 0)
+            {
+                Debug.Log("RIP");
+                SceneManager.LoadScene(_loseScene);
+            }
+        }
     }
 }

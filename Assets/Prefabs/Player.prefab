@@ -112,7 +112,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 4edd12cc298d3504880b0f8e123b50b3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -169,7 +169,7 @@ MonoBehaviour:
   maxCyoteTime: 10
   maxSpeed: 10
   acceleration: 8
-  jumpForce: 8.5
+  jumpForce: 17
   _gasLayer: 9
   _loseScene: 0
   _winScene: 0

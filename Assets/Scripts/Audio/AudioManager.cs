@@ -66,7 +66,6 @@ public class AudioManager : MonoBehaviour
         if (sound != null)
         {
             sound.source.Play();
-            Debug.Log(audioName);
         }
     }
 
@@ -108,6 +107,7 @@ public class AudioManager : MonoBehaviour
         footsteps = StartCoroutine(Footsteps());
     }
 
+    //???
     public void StopFootsteps()
     {
         if (footsteps != null)

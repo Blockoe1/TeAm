@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 8b0ab295b9119c740b693a1a12326268
+guid: f1ce58716357b7647bc8d7b9794e809b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5335489359921422188
-    second: CaveGate_0
-  - first:
-      213: 497817096207897618
-    second: CaveGate_1
+      213: -6292243131150371313
+    second: StonePedestal_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CaveGate_0
+      name: StonePedestal_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 16
       alignment: 9
-      pivot: {x: 0.5, y: 0.5416667}
+      pivot: {x: 0.5, y: 0.625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6f1ef0ed477b0a40800000000000000
-      internalID: 5335489359921422188
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveGate_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5416667}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 214969ee20a98e600800000000000000
-      internalID: 497817096207897618
+      spriteID: f06f36fb5367da8a0800000000000000
+      internalID: -6292243131150371313
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 34cf4a44b2bbfe04bb6e4fbe9db51571
+    spriteID: 737e32f115d2eb644b03cbc702893a78
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CaveGate_0: 5335489359921422188
-      CaveGate_1: 497817096207897618
+      StonePedestal_0: -6292243131150371313
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

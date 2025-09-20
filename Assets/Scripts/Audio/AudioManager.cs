@@ -23,16 +23,6 @@ public class AudioManager : MonoBehaviour
         {
             PlayMusic("s");
         }
-        int numAM = FindObjectsByType<AudioManager>(sortMode: FindObjectsSortMode.None).Length;
-        if (numAM != 1)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-
 
         foreach (Sound sound in Sounds)
         {
@@ -66,7 +56,6 @@ public class AudioManager : MonoBehaviour
         if (sound != null)
         {
             sound.source.Play();
-            Debug.Log(audioName);
         }
     }
 
@@ -108,6 +97,7 @@ public class AudioManager : MonoBehaviour
         footsteps = StartCoroutine(Footsteps());
     }
 
+    //???
     public void StopFootsteps()
     {
         if (footsteps != null)

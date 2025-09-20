@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public float MoveDirection { get => moveDirection; set => moveDirection = value; }
 
     AudioManager am;
+    float lastDir = 0f;
 
     private void Awake()
     {
@@ -113,16 +114,25 @@ public class PlayerMovement : MonoBehaviour
 
         
         moveDirection = move.ReadValue<float>();
-        if(moveDirection > .05f || moveDirection < -.05f)
+        if(IsOnGround() && (moveDirection > .05f || moveDirection < -.05f))
         {
-
-            if (am == null)
+            if (am != null)
+                am.PlayFootsteps();
+            else
                 am = FindFirstObjectByType<AudioManager>();
-            am.PlayFootsteps();
         }
         else
         {
-            am.StopFootsteps();
+            if (am != null)
+                am.StopFootsteps();
+            else
+                am = FindFirstObjectByType<AudioManager>();
+        }
+
+        if(lastDir == 0 || (moveDirection < 0 && lastDir > 0) || (moveDirection > 0 && lastDir < 0))
+        {
+            GetComponent<PlayerFiring>().SwitchDirections(moveDirection);
+            lastDir = moveDirection;
         }
         PlayerAnimation.Instance.FlipSprite();
     }

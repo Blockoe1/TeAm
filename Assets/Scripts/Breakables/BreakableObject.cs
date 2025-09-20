@@ -11,6 +11,12 @@ public class BreakableObject : MonoBehaviour
         hits = score.HitsToBreak;
     }
 
+
+    private void OnValidate()
+    {
+        GetComponent<SpriteRenderer>().sprite = score.Sprite;
+    }
+
     public void BreakObject()
     {
         if(hits > 0)

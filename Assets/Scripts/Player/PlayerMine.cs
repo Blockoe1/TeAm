@@ -25,7 +25,7 @@ public class PlayerMine : MonoBehaviour
     private void Mine_started(InputAction.CallbackContext obj)
     {
         isMining = true;
-        Mine();
+        //Mine();
     }
     public void Mine()
     {

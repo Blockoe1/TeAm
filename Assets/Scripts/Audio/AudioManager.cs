@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public float musicVolume;
     [SerializeField] AudioMixerGroup masterMixer;
     [SerializeField] private float timeBetweenFootsteps = .05f;
+    [SerializeField] AudioClip c;
 
     private int footstepTrackCount;
     private int pickaxeTrackCount;
@@ -26,6 +27,7 @@ public class AudioManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+
 
         foreach (Sound sound in Sounds)
         {
@@ -50,9 +52,7 @@ public class AudioManager : MonoBehaviour
                 pickaxeTrackCount++;
         }
 
-        Debug.Log("sh");
-        Play("Footstep1");
-        PlayFootsteps();
+        PlayPickaxe();
 
         //Cursor.SetCursor(glassTexture, hotSpot, cursorMode);
     }
@@ -64,6 +64,7 @@ public class AudioManager : MonoBehaviour
         if (sound != null)
         {
             sound.source.Play();
+            Debug.Log(audioName);
         }
     }
 

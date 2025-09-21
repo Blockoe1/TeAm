@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2a248af428981f6429382724fbf65e25
+guid: 9dc032dd94944f547b1fe9f8a5f60554
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7774472466205755865
-    second: TeAmLogo_0
+      213: -6107748382485468882
+    second: TeAm_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TeAmLogo_0
+      name: TeAm_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 9
-        width: 70
-        height: 51
+        y: 79
+        width: 560
+        height: 370
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d9cf30648974eb60800000000000000
-      internalID: 7774472466205755865
+      spriteID: e29ac74d43bec3ba0800000000000000
+      internalID: -6107748382485468882
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TeAmLogo_0: 7774472466205755865
+      TeAm_0: -6107748382485468882
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -16,7 +16,12 @@ public class Damageable : MonoBehaviour
     private Coroutine flashRoutine;
     private int health;
 
+    private bool isDead = false;
+
     public int MaxHealth => maxHealth;
+
+    public bool IsDead { get => isDead; set => isDead = value; }
+
     private void Awake()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -43,8 +48,13 @@ public class Damageable : MonoBehaviour
         }
         if (health <= 0)
         {
-            OnDeathEvent?.Invoke();
+            isDead = true;
+            //OnDeathEvent?.Invoke();
         }
+    }
+    public void Die()
+    {
+        OnDeathEvent?.Invoke();
     }
 
     private IEnumerator DamageFlash(Color targetColor)

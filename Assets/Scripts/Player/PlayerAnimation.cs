@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerMine _playerMine;
     [SerializeField] private PlayerFiring _playerFiring;
+    [SerializeField] private Damageable _playerDamage;
     [SerializeField] private Animator _playerAnimator;
 
     public static PlayerAnimation Instance { get => instance; set => instance = value; }
@@ -33,6 +34,7 @@ public class PlayerAnimation : MonoBehaviour
         _playerAnimator.SetBool("IsOnGround", _playerMovement.IsOnGround());
         _playerAnimator.SetBool("IsMining", _playerMine.IsMining);
         _playerAnimator.SetBool("IsSpitting", _playerFiring.IsSpitting);
+        _playerAnimator.SetBool("IsDead", _playerDamage.IsDead);
     }
     public void EndMining()
     {

@@ -109,6 +109,7 @@ MonoBehaviour:
   - {fileID: 5401409845329690948, guid: acd2de275dcc4e84ba9597f2620699a6, type: 3}
   - {fileID: 248824447563242736, guid: acd2de275dcc4e84ba9597f2620699a6, type: 3}
   breakRenderer: {fileID: 1980511291328455802}
+  cursor: {fileID: 2800000, guid: 40f9f64d88befe04f9d26dee1fc325e0, type: 3}
 --- !u!61 &-6117561694974373039
 BoxCollider2D:
   m_ObjectHideFlags: 0

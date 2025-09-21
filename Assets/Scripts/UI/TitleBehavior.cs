@@ -11,7 +11,7 @@ public class TitleBehavior : MonoBehaviour
 
     private void Start()
     {
-        //MusicManager.Instance.TitleMusic();
+        MusicManager.Instance.TitleMusic();
     }
 
     public void StartGame()

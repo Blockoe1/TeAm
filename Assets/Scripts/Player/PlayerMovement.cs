@@ -137,17 +137,22 @@ public class PlayerMovement : MonoBehaviour
         PlayerAnimation.Instance.FlipSprite();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.layer == _gasLayer)
+    //    {
+    //        Debug.Log("Hit");
+    //        PlayerStatScript.RemainingHealth--;
+    //        if (PlayerStatScript.RemainingHealth <= 0)
+    //        {
+                
+    //        }
+    //    }
+    //}
+
+    public void Death()
     {
-        if (collision.gameObject.layer == _gasLayer)
-        {
-            Debug.Log("Hit");
-            PlayerStatScript.RemainingHealth--;
-            if (PlayerStatScript.RemainingHealth <= 0)
-            {
-                Debug.Log("RIP");
-                SceneManager.LoadScene(_loseScene);
-            }
-        }
+        Debug.Log("RIP");
+        SceneManager.LoadScene(_loseScene);
     }
 }

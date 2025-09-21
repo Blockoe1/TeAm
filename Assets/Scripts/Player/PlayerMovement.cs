@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Death()
     {
-        Debug.Log("RIP");
+        //Debug.Log("RIP");
         StaticData.EndID = 0;
         SceneManager.LoadScene("EndScreen");
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 public class Damageable : MonoBehaviour
@@ -49,6 +50,10 @@ public class Damageable : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
+            if (GetComponent<PlayerInput>() != null)
+            {
+                Destroy(GetComponent<PlayerInput>());
+            }
             //OnDeathEvent?.Invoke();
         }
     }

@@ -32,7 +32,6 @@ public class GasDamage : MonoBehaviour
 
         if (collision.gameObject.TryGetComponent(out Damageable damageable))
         {
-            Debug.Log("Entered");
             targets.Add(damageable);
             if (!hitCooldown)
             {
@@ -45,7 +44,6 @@ public class GasDamage : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Damageable damageable) && targets.Contains(damageable))
         {
-            Debug.Log("exited");
             targets.Remove(damageable);
         }
     }

@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 using static UnityEngine.InputSystem.UI.VirtualMouseInput;
 
@@ -12,12 +13,21 @@ public class BreakableObject : MonoBehaviour
     [SerializeField] private Sprite[] breakStates = new Sprite[3];
     [SerializeField] private SpriteRenderer breakRenderer;
     [SerializeField] private Texture2D cursor;
+    [SerializeField] private Light2D lightObj;
 
     private int hits = 0;
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = score.Sprite;
-        hits = score.HitsToBreak;
+        if(score.Sprite.name.Contains("Ore"))
+        {
+            lightObj.color = score.LightColor;
+        }
+        else
+        {
+            Destroy(lightObj);
+        }
+            hits = score.HitsToBreak;
     }
 
 

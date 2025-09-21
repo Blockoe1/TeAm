@@ -11,8 +11,11 @@ public class ScoreObject : ScriptableObject
 
     [SerializeField] private int hitsToBreak = 1;
 
+    [SerializeField] private Color lightColor;
+
     public Sprite Sprite { get => sprite; set => sprite = value; }
     public int HitsToBreak { get => hitsToBreak; set => hitsToBreak = value; }
+    public Color LightColor { get => lightColor; set => lightColor = value; }
 
     public void AddScore()
     {

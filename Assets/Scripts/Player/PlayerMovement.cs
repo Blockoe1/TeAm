@@ -41,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
     AudioManager am;
     float lastDir = 0f;
 
+    [SerializeField] private Transform lightObj;
+    [SerializeField] private Vector3 rightLightAnchor;
+    [SerializeField] private Vector3 leftLightAnchor;
+
     private void Awake()
     {
         pRigidBody2D = GetComponent<Rigidbody2D>();
@@ -108,8 +112,8 @@ public class PlayerMovement : MonoBehaviour
         if (!IsOnGround())
         {
             cyoteTimer--;
-        } 
-        else if(!justJumped)
+        }
+        else if (!justJumped)
         {
             cyoteTimer = maxCyoteTime;
         }
@@ -117,9 +121,9 @@ public class PlayerMovement : MonoBehaviour
         velocityX = Mathf.MoveTowards(velocityX, move.ReadValue<float>() * maxSpeed, acceleration);
         pRigidBody2D.linearVelocity = new(velocityX, pRigidBody2D.linearVelocity.y);
 
-        
+
         moveDirection = move.ReadValue<float>();
-        if(IsOnGround() && (moveDirection > .05f || moveDirection < -.05f))
+        if (IsOnGround() && (moveDirection > .05f || moveDirection < -.05f))
         {
             if (am != null)
                 am.PlayFootsteps();
@@ -134,12 +138,22 @@ public class PlayerMovement : MonoBehaviour
                 am = FindFirstObjectByType<AudioManager>();
         }
 
-        if(lastDir == 0 || (moveDirection < 0 && lastDir > 0) || (moveDirection > 0 && lastDir < 0))
+        if (lastDir == 0 || (moveDirection < 0 && lastDir > 0) || (moveDirection > 0 && lastDir < 0))
         {
             GetComponent<PlayerFiring>().SwitchDirections(moveDirection);
             lastDir = moveDirection;
         }
         PlayerAnimation.Instance.FlipSprite();
+        if (moveDirection < 0)
+        {
+            lightObj.localPosition = leftLightAnchor;
+            lightObj.rotation = Quaternion.Euler(0, 0, 90);
+        }
+        else if (moveDirection > 0)
+        {
+        lightObj.localPosition = rightLightAnchor;
+        lightObj.rotation = Quaternion.Euler(0, 0, -90);
+        }
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)

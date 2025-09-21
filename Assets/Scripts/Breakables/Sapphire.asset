@@ -16,3 +16,4 @@ MonoBehaviour:
   scoreToAdd: 70
   bitcoinToAdd: 0
   hitsToBreak: 3
+  lightColor: {r: 0.19607845, g: 0.38431376, b: 0.8470589, a: 1}

@@ -12,7 +12,7 @@ public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
     [SerializeField] private HoverCases hoverCase;
 
-    [SerializeField, ShowIf("hoverCase", HoverCases.TITLE)] private string additionalInformation; 
+    [SerializeField, ShowIf("hoverCase", HoverCases.TITLE), TextArea] private string additionalInformation; 
 
     public void OnPointerEnter(PointerEventData eventData)
     {

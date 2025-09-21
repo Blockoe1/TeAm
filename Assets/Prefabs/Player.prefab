@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _launchPosRelative: {x: 0, y: 0, z: 0}
   _visDistance: 5
-  _degrees: 15
+  _degrees: 0
   canary: {fileID: 6684891126805610537, guid: c226a1cb29789f441967ccded115ff9e, type: 3}
   _maxHealth: 3
 --- !u!61 &7854540301724159654

@@ -154,5 +154,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("RIP");
         SceneManager.LoadScene(_loseScene);
+        ScoreScript.Score = 0;
     }
 }

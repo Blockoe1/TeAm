@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Amethyst
   m_EditorClassIdentifier: 
   sprite: {fileID: 8431640888193978033, guid: 19d91590dc67da5438ab22566b92ea96, type: 3}
-  scoreToAdd: 150
+  scoreToAdd: 60
   bitcoinToAdd: 0
-  hitsToBreak: 5
+  hitsToBreak: 2

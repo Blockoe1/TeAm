@@ -31,6 +31,13 @@ public class BreakableObject : MonoBehaviour
         {
             score.AddScore();
         }
+
+        if (score.name.ToLower().Contains("bit"))
+            FindFirstObjectByType<AudioManager>().Play("Coin");
+        else if (score.name.ToLower().Contains("wall"))
+            Debug.Log("");
+        else
+            FindFirstObjectByType<AudioManager>().Play("Bitcoin");
         Destroy(gameObject);
     }
 }

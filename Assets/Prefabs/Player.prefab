@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 5724688458343145454}
   - component: {fileID: 55640843532378030}
   - component: {fileID: 3963928505615656920}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 366635482322764973}
   - component: {fileID: 107828976130168255}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraPointPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,7 +8,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip titleMusic;
     [SerializeField] private AudioClip deadMusic;
     private AudioSource musicSource;
-    private void Start()
+    private void Awake()
     {
         if(Instance == null)
         {

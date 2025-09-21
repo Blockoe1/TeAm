@@ -63,7 +63,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move_started(InputAction.CallbackContext obj)
     {
-        isMoving = true;
+        if (!PauseBehavior.IsPaused)
+        {
+            isMoving = true;
+        }
     }
     private void Move_canceled(InputAction.CallbackContext obj)
     {
@@ -72,7 +75,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump_started(InputAction.CallbackContext obj)
     {
-        jumping = true;
+        if (!PauseBehavior.IsPaused)
+        {
+            jumping = true;
+        }
     }
     private void Jump_canceled(InputAction.CallbackContext obj)
     {

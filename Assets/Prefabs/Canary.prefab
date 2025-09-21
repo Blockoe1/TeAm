@@ -107,7 +107,8 @@ MonoBehaviour:
   timeBeforeFalling: 2
   distanceModifier: 1
   timeBeforeLaunch: 0.5
-  gravityScale: 0.5
+  deadGravityScale: 0.5
+  unconciousGravityScale: 1.5
   returnSpeed: 12
 --- !u!50 &2560864540774854441
 Rigidbody2D:
@@ -125,7 +126,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8654a85c5d6876349ac140fda916af5a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -146,7 +147,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8654a85c5d6876349ac140fda916af5a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -218,6 +219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   updatePlayerHealth: 0
+  damageFlashColor: {r: 0.7529412, g: 0.22352941, b: 0.09411765, a: 1}
+  flashLerpSpeed: 2
   OnDamageEvent:
     m_PersistentCalls:
       m_Calls: []

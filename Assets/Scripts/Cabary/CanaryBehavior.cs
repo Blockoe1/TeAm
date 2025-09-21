@@ -62,7 +62,7 @@ public class CanaryBehavior : MonoBehaviour
         {
             return;
         }
-        rb2d.linearVelocity = Vector2.zero;
+        //rb2d.linearVelocity = Vector2.zero;
         rb2d.gravityScale = 0f;
         if (!collision.gameObject.GetComponent<PlayerMovement>() && !animator.GetBool("HasKOed"))
         {

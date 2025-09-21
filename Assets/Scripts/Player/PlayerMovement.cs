@@ -161,4 +161,9 @@ public class PlayerMovement : MonoBehaviour
         StaticData.EndID = 0;
         SceneManager.LoadScene("EndScreen");
     }
+
+    public void FadeScreen()
+    {
+        StartCoroutine(FindFirstObjectByType<FadeToBlack>().Fade());
+    }
 }

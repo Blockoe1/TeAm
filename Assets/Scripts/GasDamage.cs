@@ -2,13 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using NaughtyAttributes;
 
 public class GasDamage : MonoBehaviour
 {
-    [SerializeField] private float shownAlpha = 0.25f;
-    [SerializeField] private float alphaLerpSpeed = 0.5f;
-    [SerializeField] private float alphaCutoff = 0.05f;
     [SerializeField] private float damageCooldown = 0.5f;
+    [SerializeField] private bool flashAlpha;
+    [SerializeField, ShowIf("flashAlpha")] private float shownAlpha = 0.25f;
+    [SerializeField, ShowIf("flashAlpha")] private float alphaLerpSpeed = 0.5f;
+    [SerializeField, ShowIf("flashAlpha")] private float alphaCutoff = 0.05f;
 
     private Tilemap tilemap;
 
@@ -18,8 +20,11 @@ public class GasDamage : MonoBehaviour
 
     private void Awake()
     {
-        tilemap = GetComponent<Tilemap>();
-        tilemap.color = SetAlpha(tilemap.color, 0);
+        if (flashAlpha)
+        {
+            tilemap = GetComponent<Tilemap>();
+            tilemap.color = SetAlpha(tilemap.color, 0);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,12 +59,15 @@ public class GasDamage : MonoBehaviour
                 damageable.TakeDamage(1);
             }
 
-            if (showRoutine != null)
+            if (flashAlpha)
             {
-                StopCoroutine(showRoutine);
-                showRoutine = null;
+                if (showRoutine != null)
+                {
+                    StopCoroutine(showRoutine);
+                    showRoutine = null;
+                }
+                showRoutine = StartCoroutine(ShowRoutine(shownAlpha));
             }
-            showRoutine = StartCoroutine(ShowRoutine(shownAlpha));
 
             StartCoroutine(DamageCooldown(damageCooldown));
         }

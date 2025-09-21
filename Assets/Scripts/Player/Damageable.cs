@@ -8,7 +8,7 @@ public class Damageable : MonoBehaviour
     [SerializeField] private UnityEvent<int> OnDamageEvent;
     [SerializeField] private UnityEvent OnDeathEvent;
 
-    [SerializeField] private int health;
+    private int health;
 
     private void Awake()
     {

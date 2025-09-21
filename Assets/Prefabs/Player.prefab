@@ -336,6 +336,7 @@ MonoBehaviour:
   _playerMovement: {fileID: 1255006410385664032}
   _playerMine: {fileID: 5284391485130005648}
   _playerFiring: {fileID: 567240491119237640}
+  _playerDamage: {fileID: 1115866434767933417}
   _playerAnimator: {fileID: 4229158119677106522}
 --- !u!95 &4229158119677106522
 Animator:

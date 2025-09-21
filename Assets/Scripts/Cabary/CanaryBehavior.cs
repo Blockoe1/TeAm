@@ -8,6 +8,7 @@ public class CanaryBehavior : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb2d;
     private PlayerFiring pf;
+    private ParticleSystem particleSystem;
     [SerializeField] private float timeBeforeFalling = .2f;
     [SerializeField] private float distanceModifier = 1.0f;
     [SerializeField] private float timeBeforeLaunch = .5f;
@@ -24,6 +25,7 @@ public class CanaryBehavior : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         am = FindFirstObjectByType<AudioManager>();
         animator = GetComponent<Animator>();
+        particleSystem = GetComponent<ParticleSystem>();
     }
 
     /// <summary>
@@ -126,7 +128,7 @@ public class CanaryBehavior : MonoBehaviour
     {
         //animator.SetBool("HasCrashed", true);
         animator.SetTrigger("ForceSpin");
-        gameObject.layer = 8;
+        //gameObject.layer = 8;
         rb2d.gravityScale = 0;
         rb2d.linearVelocity = Vector2.zero;
 
@@ -135,10 +137,11 @@ public class CanaryBehavior : MonoBehaviour
         //    rb2d.AddForce(diff, ForceMode2D.Impulse);
         //else
         //    Destroy(gameObject);
-        if (GetComponent<BoxCollider2D>() != null)
-        {
-            Destroy(GetComponent<Collider2D>());
-        }
+
+        //if (GetComponent<BoxCollider2D>() != null)
+        //{
+        //    Destroy(GetComponent<Collider2D>());
+        //}
         rb2d.simulated = false;
 
         while (Vector3.Distance(transform.position, pf.transform.position) > 1f)

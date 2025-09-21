@@ -219,6 +219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   updatePlayerHealth: 0
+  damageFlashColor: {r: 0.7529412, g: 0.22352941, b: 0.09411765, a: 1}
+  flashLerpSpeed: 2
   OnDamageEvent:
     m_PersistentCalls:
       m_Calls: []

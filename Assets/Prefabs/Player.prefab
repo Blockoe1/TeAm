@@ -305,7 +305,7 @@ MonoBehaviour:
   maxHealth: 5
   updatePlayerHealth: 1
   damageFlashColor: {r: 0.754717, g: 0.22453645, b: 0.09255954, a: 1}
-  flashLerpSpeed: 1
+  flashLerpSpeed: 2
   OnDamageEvent:
     m_PersistentCalls:
       m_Calls:

@@ -19,10 +19,10 @@ public class AudioManager : MonoBehaviour
     private Coroutine footsteps;
     void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            PlayMusic("s");
-        }
+        //if(SceneManager.GetActiveScene().buildIndex == 0)
+        //{
+        //    PlayMusic("s");
+        //}
 
         foreach (Sound sound in Sounds)
         {
@@ -77,16 +77,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayMusic(string s)
-    {
-        for (int i = 0; i < Sounds.Length; i++)
-        {
-            if (Sounds[i].isMusic)
-                Sounds[i].source.Stop();
-        }
-        Play(s);
+    //public void PlayMusic(string s)
+    //{
+    //    for (int i = 0; i < Sounds.Length; i++)
+    //    {
+    //        if (Sounds[i].isMusic)
+    //            Sounds[i].source.Stop();
+    //    }
+    //    Play(s);
 
-    }
+    //}
 
     public void PlayFootsteps()
     {
@@ -123,14 +123,14 @@ public class AudioManager : MonoBehaviour
         Play("Pickaxe" + track);
     }
 
-    public void CanaryDeathMusic()
-    {
-        PlayMusic("Death");
-    }
+    //public void CanaryDeathMusic()
+    //{
+    //    PlayMusic("Death");
+    //}
 
-    public void CanaryLivingMusic()
-    {
-        PlayMusic("Alive");
-    }
+    //public void CanaryLivingMusic()
+    //{
+    //    PlayMusic("Alive");
+    //}
 
 }

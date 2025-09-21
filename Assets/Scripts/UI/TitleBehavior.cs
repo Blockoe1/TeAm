@@ -9,6 +9,11 @@ public class TitleBehavior : MonoBehaviour
     [SerializeField] private TMP_Text _extraInformationText;
     [SerializeField] private int _gameScene;
 
+    private void Start()
+    {
+        MusicManager.Instance.TitleMusic();
+    }
+
     public void StartGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(_gameScene);

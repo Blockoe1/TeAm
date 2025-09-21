@@ -80,7 +80,7 @@ public class PlayerFiring : MonoBehaviour
 
     public void HurtCanary()
     {
-        // do something if we want
+        MusicManager.Instance.DeadMusic();
     }
 
 

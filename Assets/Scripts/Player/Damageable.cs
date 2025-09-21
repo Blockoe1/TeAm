@@ -25,6 +25,7 @@ public class Damageable : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (health <= 0) { return; }
         health -= damage;
         OnDamageEvent?.Invoke(health);
 

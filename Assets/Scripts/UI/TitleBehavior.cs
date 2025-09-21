@@ -9,7 +9,7 @@ public class TitleBehavior : MonoBehaviour
     [SerializeField] private TMP_Text _extraInformationText;
     [SerializeField] private int _gameScene;
 
-    private void Start()
+    private void Awake()
     {
         MusicManager.Instance.TitleMusic();
     }

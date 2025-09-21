@@ -153,7 +153,8 @@ public class PlayerMovement : MonoBehaviour
     public void Death()
     {
         Debug.Log("RIP");
-        SceneManager.LoadScene(_loseScene);
         ScoreScript.Score = 0;
+        StaticData.EndID = 0;
+        SceneManager.LoadScene("EndScreen");
     }
 }

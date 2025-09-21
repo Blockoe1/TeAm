@@ -71,7 +71,6 @@ public class PlayerFiring : MonoBehaviour
             _degrees = initDegrees;
         }
         dir = d;
-        Debug.Log(_degrees);
         _rad = Mathf.Deg2Rad * _degrees;
     }
     public void Shoot()

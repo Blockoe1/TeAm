@@ -27,12 +27,16 @@ public class PlayerFiring : MonoBehaviour
 
     private float dir;
 
+    AudioManager am;
+
     void Start()
     {
         _rad = Mathf.Deg2Rad * _degrees;
         initDegrees = _degrees;
         pInput = GetComponent<PlayerInput>();
         shoot = pInput.currentActionMap.FindAction("Shoot");
+
+        am = FindFirstObjectByType<AudioManager>();
 
         shoot.performed += Shoot_performed;
         PlayerStatScript.RemainingHealth = _maxHealth;
@@ -69,6 +73,9 @@ public class PlayerFiring : MonoBehaviour
         Vector2 _launchPos = playerPos + _launchPosRelative;
         GameObject _can = Instantiate(canary, new Vector3(_launchPos.x, _launchPos.y, 0f), Quaternion.identity);
 
+        if (am == null)
+            FindFirstObjectByType<AudioManager>();
+        am.Play("Spit");
         StartCoroutine(_can.GetComponent<CanaryBehavior>().Launch(_rad, _visDistance, this));
 
     }
@@ -80,10 +87,10 @@ public class PlayerFiring : MonoBehaviour
 
     public void HurtCanary()
     {
-        if (MusicManager.Instance != null)
+        /*if (MusicManager.Instance != null)
         {
             MusicManager.Instance.DeadMusic();
-        }
+        }*/
     }
 
 

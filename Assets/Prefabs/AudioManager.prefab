@@ -243,6 +243,17 @@ MonoBehaviour:
     minSoundDistance: 0
     maxSoundDistance: 0
     source: {fileID: 0}
+  - name: Spit
+    isMusic: 0
+    audClip: {fileID: 8300000, guid: fb9ac8ca5868d7749a7d341fa03918c7, type: 3}
+    clipVolume: 1
+    clipPitch: 1
+    canLoop: 0
+    panStereo: 0
+    spacialBlend: 0
+    minSoundDistance: 0
+    maxSoundDistance: 0
+    source: {fileID: 0}
   musicVolume: 1
   masterMixer: {fileID: 24300002, guid: 5c4367a5ad9c519419189c65c947900e, type: 2}
   timeBetweenFootsteps: 0.15

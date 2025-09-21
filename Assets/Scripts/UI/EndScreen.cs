@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,8 @@ public class EndScreen : MonoBehaviour
 {
     [SerializeField] private GameObject _winCanvas;
     [SerializeField] private GameObject _loseCanvas;
+
+    [SerializeField] private TMP_Text _scoreText;
     private void Start()
     {
         switch (StaticData.EndID)
@@ -17,6 +20,13 @@ public class EndScreen : MonoBehaviour
                 _winCanvas.SetActive(true);
                 break;
         }
+        UpdateScoreText();
+    }
+    private void UpdateScoreText()
+    {
+        _scoreText.text = "Score = " + ScoreScript.score;
+        if (ScoreScript.Bitcoin > 0)
+            _scoreText.text += " + " + ScoreScript.Bitcoin + " Bitcoin";
     }
     public void Button_TitleScreen()
     {
@@ -29,5 +39,6 @@ public class EndScreen : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
     }
+
 
 }

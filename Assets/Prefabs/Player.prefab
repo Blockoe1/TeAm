@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c6aced85ed1d04384016f663d098ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 8
+  maxHealth: 5
   updatePlayerHealth: 1
   OnDamageEvent:
     m_PersistentCalls:
@@ -321,7 +321,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  health: 0
 --- !u!1 &6589966209496377077
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,13 +24,19 @@ public class MusicManager : MonoBehaviour
 
     public void TitleMusic()
     {
-        musicSource.clip = titleMusic;
+        if (musicSource.clip != titleMusic)
+        {
+            musicSource.clip = titleMusic;
+        }
         musicSource.Play();
     }
 
     public void DeadMusic()
     {
-        musicSource.clip = deadMusic;
+        if (musicSource.clip != deadMusic)
+        {
+            musicSource.clip = deadMusic;
+        }
         musicSource.Play();
     }
 }

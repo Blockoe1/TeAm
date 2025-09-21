@@ -17,6 +17,7 @@ public class CanaryBehavior : MonoBehaviour
     private bool isDead = false;
 
     AudioManager am;
+
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -64,7 +65,8 @@ public class CanaryBehavior : MonoBehaviour
         rb2d.gravityScale = 0f;
         if (!collision.gameObject.GetComponent<PlayerMovement>() && !animator.GetBool("HasKOed"))
         {
-            StartCoroutine(ReturnCanary());
+            //StartCoroutine(ReturnCanary());
+            OnCanaryCrash();
         }
         else if (collision.gameObject.GetComponent<PlayerMovement>())
         {
@@ -91,6 +93,14 @@ public class CanaryBehavior : MonoBehaviour
     //    }
     //}
 
+    private void OnCanaryCrash()
+    {
+        animator.SetBool("HasCrashed", true);
+        rb2d.linearVelocity = rb2d.linearVelocity * .8f;
+        rb2d.gravityScale = gravityScale;
+        StartCoroutine(CrashCountdown());
+    }
+
     public void OnCanaryDeath()
     {
         rb2d.linearVelocity = rb2d.linearVelocity * .8f;
@@ -99,6 +109,8 @@ public class CanaryBehavior : MonoBehaviour
 
         animator.SetBool("HasKOed", true);
         StartCoroutine(DeadCountdown());
+
+
         isDead = true;
     }
 
@@ -108,7 +120,7 @@ public class CanaryBehavior : MonoBehaviour
     }
     public IEnumerator ReturnCanary()
     {
-        animator.SetBool("HasCrashed", true);
+        //animator.SetBool("HasCrashed", true);
         gameObject.layer = 8;
         rb2d.gravityScale = 0;
         rb2d.linearVelocity = Vector2.zero;
@@ -135,7 +147,18 @@ public class CanaryBehavior : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             animator.SetInteger("DeadWaitTime", animator.GetInteger("DeadWaitTime") - 1);
-            Debug.Log(animator.GetInteger("DeadWaitTime"));
+            //Debug.Log(animator.GetInteger("DeadWaitTime"));
+        }
+        StartCoroutine(ReturnCanary());
+    }
+
+    IEnumerator CrashCountdown()
+    {
+        while (animator.GetInteger("CrashWaitTime") > 0)
+        {
+            yield return new WaitForSeconds(1);
+            animator.SetInteger("CrashWaitTime", animator.GetInteger("CrashWaitTime") - 1);
+            //Debug.Log(animator.GetInteger("DeadWaitTime"));
         }
         StartCoroutine(ReturnCanary());
     }

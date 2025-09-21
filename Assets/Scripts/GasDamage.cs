@@ -24,12 +24,12 @@ public class GasDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if(collision.gameObject.TryGetComponent(out Damageable damageable))
+
+        if (collision.gameObject.TryGetComponent(out Damageable damageable))
         {
             Debug.Log("Entered");
             targets.Add(damageable);
-            if(!hitCooldown)
+            if (!hitCooldown)
             {
                 DealDamage();
             }

@@ -42,12 +42,17 @@ public class CanaryBehavior : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeLaunch);
         Vector2 force = new Vector2(pf.LaunchPos.x + Mathf.Cos(rad) * dist, pf.LaunchPos.y + Mathf.Sin(rad) * dist) * .05f * distanceModifier;
         rb2d.AddForce(force, ForceMode2D.Impulse);
+        if (rb2d != null && rb2d.linearVelocityX < 0)
+            GetComponent<SpriteRenderer>().flipX = true;
         yield return new WaitForSeconds(.1f);
         canCollide = true;
         yield return new WaitForSeconds(timeBeforeFalling);
         if(rb2d!=null)
             rb2d.gravityScale = gravityScale;
+
+
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

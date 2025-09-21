@@ -12,6 +12,7 @@ public class TitleBehavior : MonoBehaviour
     private void Start()
     {
         MusicManager.Instance.TitleMusic();
+        ScoreScript.ResetScore();
     }
 
     public void StartGame()

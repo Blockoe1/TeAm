@@ -24,7 +24,8 @@ public class GasDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.TryGetComponent(out Damageable damageable))
+        if (collision.transform.parent == null) { return; }
+        if(collision.transform.parent.TryGetComponent(out Damageable damageable))
         {
             targets.Add(damageable);
             if(!hitCooldown)
@@ -36,7 +37,8 @@ public class GasDamage : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Damageable damageable) && targets.Contains(damageable))
+        if (collision.transform.parent == null) { return; }
+        if (collision.transform.parent.TryGetComponent(out Damageable damageable) && targets.Contains(damageable))
         {
             targets.Remove(damageable);
         }

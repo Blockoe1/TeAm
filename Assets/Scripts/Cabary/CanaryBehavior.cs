@@ -70,20 +70,31 @@ public class CanaryBehavior : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == 9) //GAS
-        {
-            Debug.Log("Canary Hurt");
-            collision.gameObject.GetComponent<CloudBehavior>().MakeVisible();
-            rb2d.linearVelocity = rb2d.linearVelocity*.8f;
-            rb2d.gravityScale = gravityScale;
-            pf.HurtCanary();
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.layer == 9) //GAS
+    //    {
+    //        Debug.Log("Canary Hurt");
+    //        //collision.gameObject.GetComponent<CloudBehavior>().MakeVisible();
+    //        rb2d.linearVelocity = rb2d.linearVelocity*.8f;
+    //        rb2d.gravityScale = gravityScale;
+    //        pf.HurtCanary();
 
-            animator.SetBool("HasKOed", true);
-            StartCoroutine(DeadCountdown());
-        }
+    //        animator.SetBool("HasKOed", true);
+    //        StartCoroutine(DeadCountdown());
+    //    }
+    //}
+
+    public void OnCanaryDeath()
+    {
+        rb2d.linearVelocity = rb2d.linearVelocity * .8f;
+        rb2d.gravityScale = gravityScale;
+        pf.HurtCanary();
+
+        animator.SetBool("HasKOed", true);
+        StartCoroutine(DeadCountdown());
     }
+
     private void OnDestroy()
     {
         pf.CanLaunch = true;

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2560864540774854441}
   - component: {fileID: 4560267998609299177}
   - component: {fileID: 8560127847664716991}
+  - component: {fileID: 1326355561309986503}
   m_Layer: 7
   m_Name: Canary
   m_TagString: Untagged
@@ -203,3 +204,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1326355561309986503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6684891126805610537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c6aced85ed1d04384016f663d098ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  updatePlayerHealth: 0
+  OnDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4191296225149443336}
+        m_TargetAssemblyTypeName: CanaryBehavior, Assembly-CSharp
+        m_MethodName: OnCanaryDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  health: 0

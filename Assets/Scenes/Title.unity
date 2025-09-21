@@ -3671,7 +3671,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Canary in the Mines
+  m_text: Carrie in Peril
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a4d30a39c8ac6ac4d81a266ec9f7ce50, type: 2}
   m_sharedMaterial: {fileID: -6437759970322116392, guid: a4d30a39c8ac6ac4d81a266ec9f7ce50, type: 2}

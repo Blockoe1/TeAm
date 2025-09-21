@@ -11,7 +11,8 @@ public class CanaryBehavior : MonoBehaviour
     [SerializeField] private float timeBeforeFalling = .2f;
     [SerializeField] private float distanceModifier = 1.0f;
     [SerializeField] private float timeBeforeLaunch = .5f;
-    [SerializeField] private float gravityScale = .5f;
+    [SerializeField] private float deadGravityScale = .5f;
+    [SerializeField] private float unconciousGravityScale = 1.5f;
     [SerializeField] private float returnSpeed = 0.6f;
 
     private bool isDead = false;
@@ -50,7 +51,7 @@ public class CanaryBehavior : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeFalling);
         if (rb2d != null && !isDead)
         {
-            rb2d.gravityScale = gravityScale;
+            rb2d.gravityScale = deadGravityScale;
         }
     }
 
@@ -97,14 +98,14 @@ public class CanaryBehavior : MonoBehaviour
     {
         animator.SetBool("HasCrashed", true);
         rb2d.linearVelocity = rb2d.linearVelocity * .8f;
-        rb2d.gravityScale = gravityScale;
+        rb2d.gravityScale = unconciousGravityScale;
         StartCoroutine(CrashCountdown());
     }
 
     public void OnCanaryDeath()
     {
         rb2d.linearVelocity = rb2d.linearVelocity * .8f;
-        rb2d.gravityScale = gravityScale;
+        rb2d.gravityScale = deadGravityScale;
         pf.HurtCanary();
 
         animator.SetBool("HasKOed", true);

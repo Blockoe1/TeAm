@@ -44,12 +44,20 @@ public class PlayerFiring : MonoBehaviour
 
     private void Shoot_performed(InputAction.CallbackContext obj)
     {
+        if(!_canLaunch && FindAnyObjectByType<CanaryBehavior>() == null)
+        {
+            _canLaunch = true;
+        }
+
         if (_canLaunch)
         {
             isSpitting = true;
             _canLaunch = false;
         }
-
+        else
+        {
+            FindAnyObjectByType<CanaryBehavior>().StartReturnCoroutine();
+        }
     }
 
     public void SwitchDirections(float d)

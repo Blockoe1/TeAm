@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8389065816617828579}
   - component: {fileID: 4229158119677106522}
   - component: {fileID: 1115866434767933417}
+  - component: {fileID: 7987760486926949295}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -303,9 +304,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   updatePlayerHealth: 1
+  damageFlashColor: {r: 0.754717, g: 0.22453645, b: 0.09255954, a: 1}
+  flashLerpSpeed: 1
   OnDamageEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7987760486926949295}
+        m_TargetAssemblyTypeName: ColorHealth, Assembly-CSharp
+        m_MethodName: SetColors
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeathEvent:
     m_PersistentCalls:
       m_Calls:
@@ -321,6 +336,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7987760486926949295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3543431428262193340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfed38892b03cba459748e7f76f4c9bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadColor: {r: 0.25882354, g: 0.4862745, b: 0, a: 1}
 --- !u!1 &6589966209496377077
 GameObject:
   m_ObjectHideFlags: 0

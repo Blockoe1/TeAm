@@ -108,7 +108,7 @@ MonoBehaviour:
   distanceModifier: 1
   timeBeforeLaunch: 0.5
   gravityScale: 0.5
-  returnSpeed: 0.6
+  returnSpeed: 12
 --- !u!50 &2560864540774854441
 Rigidbody2D:
   serializedVersion: 5

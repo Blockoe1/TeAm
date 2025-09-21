@@ -14,8 +14,9 @@ public class CanaryBehavior : MonoBehaviour
     [SerializeField] private float gravityScale = .5f;
     [SerializeField] private float returnSpeed = 0.6f;
 
+    private bool isDead = false;
+
     AudioManager am;
-    private bool canCollide = false;
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -39,39 +40,39 @@ public class CanaryBehavior : MonoBehaviour
             pf = pRef;
 
         rb2d.linearVelocity = Vector2.zero;
-        yield return new WaitForSeconds(timeBeforeLaunch);
-        Vector2 force = new Vector2(pf.LaunchPos.x + Mathf.Cos(rad) * dist, pf.LaunchPos.y + Mathf.Sin(rad) * dist) * .05f * distanceModifier;
+        //yield return new WaitForSeconds(timeBeforeLaunch);
+        Vector2 force = new Vector2(Mathf.Cos(rad) * dist, Mathf.Sin(rad) * dist) * .25f * distanceModifier;
         rb2d.AddForce(force, ForceMode2D.Impulse);
         if (rb2d != null && rb2d.linearVelocityX < 0)
             GetComponent<SpriteRenderer>().flipX = true;
         yield return new WaitForSeconds(.1f);
-        canCollide = true;
         yield return new WaitForSeconds(timeBeforeFalling);
-        if(rb2d!=null)
+        if (rb2d != null && !isDead)
+        {
             rb2d.gravityScale = gravityScale;
-
-
+        }
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (canCollide)
+        if (isDead)
         {
-            rb2d.linearVelocity = Vector2.zero;
-            rb2d.gravityScale = 0f;
-            if (!collision.gameObject.GetComponent<PlayerMovement>() && !animator.GetBool("HasKOed"))
-            {
-                ReturnCanary();
-            }
-            else if (collision.gameObject.GetComponent<PlayerMovement>())
-            {
-                pf.ResetCanary();
-                // change canary sprite
-                am.Play("Splat");
-                Destroy(GetComponent<Collider>());
-                Destroy(gameObject);
-            }
+            return;
+        }
+        rb2d.linearVelocity = Vector2.zero;
+        rb2d.gravityScale = 0f;
+        if (!collision.gameObject.GetComponent<PlayerMovement>() && !animator.GetBool("HasKOed"))
+        {
+            StartCoroutine(ReturnCanary());
+        }
+        else if (collision.gameObject.GetComponent<PlayerMovement>())
+        {
+            pf.ResetCanary();
+            // change canary sprite
+            am.Play("Splat");
+            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(gameObject);
         }
     }
 
@@ -98,25 +99,35 @@ public class CanaryBehavior : MonoBehaviour
 
         animator.SetBool("HasKOed", true);
         StartCoroutine(DeadCountdown());
+        isDead = true;
     }
 
     private void OnDestroy()
     {
         pf.CanLaunch = true;
     }
-    public void ReturnCanary()
+    public IEnumerator ReturnCanary()
     {
-        Debug.Log("Return");
-        gameObject.layer = 8;
-
-        Vector3 diff = (pf.gameObject.transform.position - transform.position) * .6f;
-        if (GetComponent<Renderer>().isVisible)
-            rb2d.AddForce(diff, ForceMode2D.Impulse);
-        else
-            Destroy(gameObject);
-
         animator.SetBool("HasCrashed", true);
+        gameObject.layer = 8;
+        rb2d.gravityScale = 0;
+        rb2d.linearVelocity = Vector2.zero;
 
+        //Vector3 diff = (pf.gameObject.transform.position - transform.position) * .6f;
+        //if (GetComponent<Renderer>().isVisible)
+        //    rb2d.AddForce(diff, ForceMode2D.Impulse);
+        //else
+        //    Destroy(gameObject);
+        Destroy(GetComponent<Collider2D>());
+        rb2d.simulated = false;
+
+        while (Vector3.Distance(transform.position, pf.transform.position) > 1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, pf.transform.position, Time.deltaTime * returnSpeed);
+            yield return null;
+        }
+        am.Play("Splat");
+        Destroy(gameObject);
     }
     IEnumerator DeadCountdown()
     {
@@ -126,6 +137,6 @@ public class CanaryBehavior : MonoBehaviour
             animator.SetInteger("DeadWaitTime", animator.GetInteger("DeadWaitTime") - 1);
             Debug.Log(animator.GetInteger("DeadWaitTime"));
         }
-        ReturnCanary();
+        StartCoroutine(ReturnCanary());
     }
 }

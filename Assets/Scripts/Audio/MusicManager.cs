@@ -27,8 +27,8 @@ public class MusicManager : MonoBehaviour
         if (musicSource.clip != titleMusic)
         {
             musicSource.clip = titleMusic;
+            musicSource.Play();
         }
-        musicSource.Play();
     }
 
     public void DeadMusic()
@@ -36,7 +36,7 @@ public class MusicManager : MonoBehaviour
         if (musicSource.clip != deadMusic)
         {
             musicSource.clip = deadMusic;
+            musicSource.Play();
         }
-        musicSource.Play();
     }
 }

@@ -22,7 +22,7 @@ public class TimerBehavior : MonoBehaviour
             rb2d.linearVelocity = new Vector2(0,-1) * initialSpeed;
             yield return new WaitForSeconds(1/stepsPerSecond);
         }
-        Debug.LogWarning("Switched");
+        //Debug.LogWarning("Switched");
         while(true)
         {
             rb2d.linearVelocity = new Vector2(0, -1) * speedAfterSpeedup;

@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PauseBehavior : MonoBehaviour
+public class PauseBehavior : TitleBehavior
 {
     [SerializeField] private GameObject pauseMenuObject;
-    [SerializeField] private GameObject extraInformation;
-    [SerializeField] private TMP_Text extraInformationText;
+    //[SerializeField] private GameObject extraInformation;
+    //[SerializeField] private TMP_Text extraInformationText;
 
     private InputAction pauseAction;
     private static bool isPaused;
@@ -50,20 +50,21 @@ public class PauseBehavior : MonoBehaviour
         }
     }
 
-    public void ShowExtraInformation(string t)
-    {
-        extraInformation.SetActive(true);
-        extraInformationText.text = t;
-    }
+    //public void ShowExtraInformation(string t)
+    //{
+    //    extraInformation.SetActive(true);
+    //    extraInformationText.text = t;
+    //}
 
-    public void HideExtraInformation()
-    {
-        extraInformation.SetActive(false);
-    }
+    //public void HideExtraInformation()
+    //{
+    //    extraInformation.SetActive(false);
+    //}
 
     public void OnQuitPressed()
     {
         ScoreScript.Score = 0;
+        TogglePauseMenu(false);
         SceneManager.LoadScene("Title");
     }
 }

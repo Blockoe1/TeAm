@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe1af559b47b7645829431a0139849b, type: 3}
   m_Name: Amethyst
   m_EditorClassIdentifier: 
-  sprite: {fileID: 8431640888193978033, guid: 19d91590dc67da5438ab22566b92ea96, type: 3}
+  sprite: {fileID: 2364817451648982635, guid: 19d91590dc67da5438ab22566b92ea96, type: 3}
   scoreToAdd: 60
   bitcoinToAdd: 0
   hitsToBreak: 2

@@ -7,6 +7,7 @@ public class GasDamage : MonoBehaviour
 {
     [SerializeField] private float shownAlpha = 0.25f;
     [SerializeField] private float alphaLerpSpeed = 0.5f;
+    [SerializeField] private float alphaCutoff = 0.05f;
     [SerializeField] private float damageCooldown = 0.5f;
 
     private Tilemap tilemap;
@@ -65,7 +66,7 @@ public class GasDamage : MonoBehaviour
     {
         tilemap.color = SetAlpha(tilemap.color, shownAlpha);
 
-        while (Mathf.Abs(tilemap.color.a) > 0.1f)
+        while (Mathf.Abs(tilemap.color.a) > alphaCutoff)
         {
             float step = 1 - Mathf.Pow(0.5f, alphaLerpSpeed * Time.deltaTime);
             float targetA = Mathf.Lerp(tilemap.color.a, 0, step);

@@ -24,7 +24,10 @@ public class PlayerMine : MonoBehaviour
 
     private void Mine_started(InputAction.CallbackContext obj)
     {
-        isMining = true;
+        if (!PauseBehavior.IsPaused)
+        {
+            isMining = true;
+        }
     }
     public void Mine()
     {

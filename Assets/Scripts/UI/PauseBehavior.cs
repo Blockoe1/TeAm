@@ -15,6 +15,7 @@ public class PauseBehavior : MonoBehaviour
     public static bool IsPaused
     {
         get { return isPaused; }
+    }
 
     private void Awake()
     {
